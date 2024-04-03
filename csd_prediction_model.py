@@ -1,36 +1,38 @@
 import torch
 import torch.optim as optim
 import torch.nn as nn
-from csd_calculation import csd, f
+from csd_calculation import csds, f
+from csd_forward import simulated_csds
 import matplotlib.pyplot as plt
+from sklearn.model_selection import GridSearchCV
+import plotly.graph_objects as go
+from ipywidgets import interact, FloatSlider, Output
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-#TODO make sure format of observed data matches output of forward
-# test the ML
-# plot the observed and output of the ML against each other uses dotted lines
+x_train_tensor = torch.from_numpy(f).float().to(device)
+# y_train_tensor = torch.complex(torch.from_numpy(csds.real), torch.from_numpy(csds.imag)).to(device)
+y_train_tensor = torch.tensor(simulated_csds)
 
-
-
-x_train_tensor = torch.from_numpy(f).float().to(device) #input data - what does our model actually take in - omega - the input frequencies
-y_train_tensor = torch.complex(torch.from_numpy(csd.real), torch.from_numpy(csd.imag)).to(device) # this comes from csd var..  
-
-print("sd", device)
-
-#ASSUMPTION endogenous fluctuations = observation noise
-class ManualLinearRegression(nn.Module):
+class Spectral_DCM_Model(nn.Module):
+    def get_rand_in_range(self, a, b, square=False):
+        if square:
+            return a - b * torch.rand(self.num_regions, self.num_regions, requires_grad=True, dtype=torch.float) + b
+        return a - b * torch.rand(self.num_regions, requires_grad=True, dtype=torch.float) + b
+    
     def __init__(self, num_regions):
         super().__init__()
-        # To make "a" and "b" real parameters of the model, we need to wrap them with nn.Parameter
-        self.alphas_e = nn.Parameter(torch.rand(num_regions, requires_grad=True, dtype=torch.float))
-        self.betas_e = nn.Parameter(torch.rand(num_regions, requires_grad=True, dtype=torch.float)) #0.5 - 3.5
-        # self.alpha = nn.Parameter(torch.rand(1), requires_grad=True)
-        # self.beta = nn.Parameter(torch.rand(1), requires_grad=True)
-        self.alphas_v = nn.Parameter(torch.rand(num_regions, requires_grad=True, dtype=torch.float))
-        self.betas_v = nn.Parameter(torch.rand(num_regions, requires_grad=True, dtype=torch.float))
-        # self.A = torch.tensor([[-1/2, 0], [0, -1/2]])
-        self.A = nn.Parameter(torch.randn(num_regions, num_regions, requires_grad=True, dtype=torch.float))
         self.num_regions = num_regions
+        # self.alphas_e = nn.Parameter(self.get_rand_in_range(0,1))
+        # self.betas_e = nn.Parameter(self.get_rand_in_range(0, 1)) #0.5 - 3.5
+        # self.alphas_v = nn.Parameter(self.get_rand_in_range(0, 1))
+        # self.betas_v = nn.Parameter(self.get_rand_in_range(0, 1))
+        # self.A = nn.Parameter(self.get_rand_in_range(0, 1, square=True))
+        self.alphas_e = nn.Parameter(torch.tensor([0.1]))
+        self.betas_e = nn.Parameter(torch.tensor([-0.1])) #0.5 - 3.5
+        self.alphas_v = nn.Parameter(torch.tensor([-2.0]))
+        self.betas_v = nn.Parameter(torch.tensor([-0.1]))
+        self.A = nn.Parameter(torch.tensor([-2.0]))
         
     def h(self, omega):
         i = torch.complex(torch.tensor(0.0), torch.tensor(1.0))
@@ -38,28 +40,43 @@ class ManualLinearRegression(nn.Module):
         return hrf * torch.eye(self.num_regions)
     
     def g(self, omega, alphas, betas):
-        # print(alphas, torch.full([self.num_regions], omega), (-1 * betas))
         # return (1/((omega + 1) ** 2)) * torch.eye(self.num_regions)
         return torch.diag(alphas * torch.full([self.num_regions], omega) ** (-1 * betas))
 
+    def make_self_connections_neg(self):
+        # with torch.no_grad():
+            a = self.A
+            v = -torch.exp(torch.diag(self.A))
+            mask = torch.diag(torch.ones_like(v))
+            out = mask*torch.diag(v) + (1. - mask)*a
+            return out
+
     def forward_single_freq(self, omega):
-        # Computes the outputs / predictions
+        A = self.A
         I = torch.eye(self.num_regions)
         i = torch.complex(torch.tensor(0.0), torch.tensor(1.0))
         hrf = self.h(omega)
-        X = torch.linalg.inv(i * omega * I - self.A) 
-        G_v = self.g(omega, self.alphas_v, self.betas_v) 
-        G_e = self.g(omega, self.alphas_e, self.betas_e) 
-        X_t = torch.linalg.inv(-1 * i * omega * I - self.A.T) 
         hrf_T = torch.conj(hrf).T
-
-        X = X.to(torch.complex64)
+        G_v = self.g(omega, self.alphas_v, self.betas_v) 
         G_v = G_v.to(torch.complex64)
-        X_t = X_t.to(torch.complex64)
-        G_e = G_e.to(torch.complex64)
-        hrf_T = hrf_T.to(torch.complex64)
-        result =  hrf @ X @ G_v @ X_t @ hrf_T + G_e
+        X = i * omega * I - A
+        C = torch.linalg.solve(X, hrf, left=False)
+        G_e = self.g(omega, self.alphas_e, self.betas_e) 
+        result =  C @ G_v @ torch.conj(C).T + G_e
+
         return result
+        # hrf_T = torch.conj(hrf).T
+        # X_inv = torch.linalg.inv(i * omega * I - A)
+        # X_inv_t = torch.linalg.inv(-1 * i * omega * I - A.T)
+
+        # X_inv = X_inv.to(torch.complex64)
+        # G_v = G_v.to(torch.complex64)
+        # X_inv_t = X_inv_t.to(torch.complex64)
+        # G_e = G_e.to(torch.complex64)
+        # hrf_T = hrf_T.to(torch.complex64)
+
+        # result_orig = hrf @ X_inv @ G_v @ X_inv_t @ hrf_T + G_e
+        # print(result - result_orig)
 
     def forward(self, freqs):
         csd_curves = torch.empty((self.num_regions ** 2, freqs.size(0)), dtype=torch.complex64)
@@ -70,73 +87,44 @@ class ManualLinearRegression(nn.Module):
         return csd_curves
 
     
-    def plot(self, gs):
-        for g in gs:
-            plt.plot(f, g.real)
-            plt.plot(f, g.imag)
+    def plot(self, yhat, y_train_tensor):
+        plt.autoscale(enable=True, axis='both', tight=None)
+        print("A", self.A)
+        print("alphas e", self.alphas_e)
+        print("alphas v", self.alphas_v)
+        print("betas e", self.betas_e)
+        print("betas v", self.betas_v)
+        for i in range(self.num_regions ** 2):
+            g = yhat[i].detach().numpy()
+            y = y_train_tensor[i].detach().numpy()
+            plt.plot(f, g, label="simulated CSD")
+            plt.plot(f, y, label="empirical CSD")
             plt.legend()
             plt.xlabel('Frequency (Hz)')
             plt.ylabel('Magnitude')
             plt.show()
-        return
     
-    
-# torch.manual_seed(12)
-# # Now we can create a model and send it at once to the device
-model = ManualLinearRegression(2).to(device)
-
-# model.A = torch.nn.Parameter(torch.tensor([[-1/2, 0], [2, -1/2]]))
-# yhat = model.forward(x_train_tensor)
-
-
-# # We can also inspect its parameters using its state_dict
-# print(model.state_dict())
-
-lr = 0.01
-n_epochs = 1000
 
 def complex_mse_loss(output, target):
-    loss =  torch.abs(((output[3].real - target[3].real)**2).sum())
-    return loss
+    loss =  ((output.real - target.real)**2).sum()
+    return loss  
+
+model = Spectral_DCM_Model(1).to(device)
+
+lr = 0.01
+n_epochs = 500
 
 optimizer = optim.Adam(model.parameters(), lr=lr)
 
 for epoch in range(n_epochs):
-    # What is this?!?
     model.train()
 
-    # No more manual prediction!
-    # yhat = a + b * x_tensor
     yhat = model(x_train_tensor)
     loss = complex_mse_loss(yhat, y_train_tensor)
-    
-    loss.backward()
     print(loss) 
+    loss.backward()
+    
     optimizer.step()
     optimizer.zero_grad()
-    
 
-
-print(yhat)
-# for i in range(4):
-
-g = yhat[3].detach().numpy()
-y = y_train_tensor[3].detach().numpy()
-plt.plot(f, g)
-plt.plot(f, y, label="target")
-plt.legend()
-plt.xlabel('Frequency (Hz)')
-plt.ylabel('Magnitude')
-plt.show()
-# y = y_train_tensor[2].detach().numpy()
-# plt.plot(f[1:], y_train_tensor[1:].real)
-#plt.plot(f, y, label="target")
-#plt.plot(f, y.imag, label="target")
-#plt.plot(f[1:], y_train_tensor[1:])
-# plt.plot(f, g)
-#plt.plot(f, g.imag)
-
-# plt.legend()
-# plt.xlabel('Frequency (Hz)')
-# plt.ylabel('Magnitude')
-# plt.show()
+model.plot(yhat, y_train_tensor)   
