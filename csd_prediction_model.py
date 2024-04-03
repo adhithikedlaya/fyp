@@ -11,7 +11,6 @@ from ipywidgets import interact, FloatSlider, Output
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 x_train_tensor = torch.from_numpy(f).float().to(device)
-# y_train_tensor = torch.complex(torch.from_numpy(csds.real), torch.from_numpy(csds.imag)).to(device)
 y_train_tensor = torch.tensor(simulated_csds)
 
 class Spectral_DCM_Model(nn.Module):
@@ -23,11 +22,6 @@ class Spectral_DCM_Model(nn.Module):
     def __init__(self, num_regions):
         super().__init__()
         self.num_regions = num_regions
-        # self.alphas_e = nn.Parameter(self.get_rand_in_range(0,1))
-        # self.betas_e = nn.Parameter(self.get_rand_in_range(0, 1)) #0.5 - 3.5
-        # self.alphas_v = nn.Parameter(self.get_rand_in_range(0, 1))
-        # self.betas_v = nn.Parameter(self.get_rand_in_range(0, 1))
-        # self.A = nn.Parameter(self.get_rand_in_range(0, 1, square=True))
         self.alphas_e = nn.Parameter(torch.tensor([0.1]))
         self.betas_e = nn.Parameter(torch.tensor([-0.1])) #0.5 - 3.5
         self.alphas_v = nn.Parameter(torch.tensor([-2.0]))
@@ -43,13 +37,13 @@ class Spectral_DCM_Model(nn.Module):
         # return (1/((omega + 1) ** 2)) * torch.eye(self.num_regions)
         return torch.diag(alphas * torch.full([self.num_regions], omega) ** (-1 * betas))
 
+    # NOT BEING USED RN
     def make_self_connections_neg(self):
-        # with torch.no_grad():
-            a = self.A
-            v = -torch.exp(torch.diag(self.A))
-            mask = torch.diag(torch.ones_like(v))
-            out = mask*torch.diag(v) + (1. - mask)*a
-            return out
+        a = self.A
+        v = -torch.exp(torch.diag(self.A))
+        mask = torch.diag(torch.ones_like(v))
+        out = mask*torch.diag(v) + (1. - mask)*a
+        return out
 
     def forward_single_freq(self, omega):
         A = self.A
@@ -65,18 +59,6 @@ class Spectral_DCM_Model(nn.Module):
         result =  C @ G_v @ torch.conj(C).T + G_e
 
         return result
-        # hrf_T = torch.conj(hrf).T
-        # X_inv = torch.linalg.inv(i * omega * I - A)
-        # X_inv_t = torch.linalg.inv(-1 * i * omega * I - A.T)
-
-        # X_inv = X_inv.to(torch.complex64)
-        # G_v = G_v.to(torch.complex64)
-        # X_inv_t = X_inv_t.to(torch.complex64)
-        # G_e = G_e.to(torch.complex64)
-        # hrf_T = hrf_T.to(torch.complex64)
-
-        # result_orig = hrf @ X_inv @ G_v @ X_inv_t @ hrf_T + G_e
-        # print(result - result_orig)
 
     def forward(self, freqs):
         csd_curves = torch.empty((self.num_regions ** 2, freqs.size(0)), dtype=torch.complex64)
