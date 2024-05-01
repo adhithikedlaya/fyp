@@ -2,9 +2,9 @@ import torch
 import torch.fft as fft
 import numpy as np
 import matplotlib.pyplot as plt
-
+import math
 # Determine the number of points, n, and the length, T
-def generate_pink_noise(n, T, alpha, beta):
+def generate_pink_noise(n, T, alpha, beta, scaling_factor=0.005):
     """"This also determines the spectral space with wave numbers -k_max to k_max which correspond to frequency values f_k=kT/(2𝜋)
         .
         
@@ -27,6 +27,7 @@ def generate_pink_noise(n, T, alpha, beta):
 
     #Set the magnitudes of your spectral coefficients: C_k=1/|f_k|
     C_k = alpha *  f_k ** (-1 * beta)#plot csd of data against this in semi y log plot -> should be alpha beta, check that real and sampled match for different values
+
     #Set C_0=0 to give zero mean to the noise sequence.
     C_k[0] = 0  # Zero mean
 
@@ -55,7 +56,7 @@ def generate_pink_noise(n, T, alpha, beta):
     # Normalize noise to have unit variance - optional addition not in orignal algo?
     noise_time_domain /= torch.std(noise_time_domain)
 
-    return noise_time_domain, C_k_complex
+    return noise_time_domain * scaling_factor, C_k_complex
 
 def plot_noise_time_domain(noise_sequence, T):
     plt.figure(figsize=(10, 5))

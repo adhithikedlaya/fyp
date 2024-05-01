@@ -1,19 +1,4 @@
-"""
-Functions for the stimulus and the equations from P-DCM model
-
-Default constant values
-- Values are from Tables 1A and 1B (values for 3T field strength and GE
-                                    acquisition method)
-- TE = 35/1000, which is stated in Method section
-
-The list of time values for error analysis is also included
-
-References:
-    Journal article: https://doi.org/10.1016/j.neuroimage.2015.07.078
-"""
-
-import numpy as np
-
+import torch
 
 class StimulusPDCMBOLD:
     """Generate the stimulus and the P-DCM equations and ODEs to calculate the
@@ -23,7 +8,7 @@ class StimulusPDCMBOLD:
     - All constants involved in the equations and ODEs (details and default
       values see below)
     - ignore_range -- Ignore plausible range checks
-    - cross_valid -- Set to True when running CrossValidation.py becuase mu
+    - cross_valid -- Set to True when running CrossValidation.py because mu
                      was outside the plausible range for the plots generated
                      in Havlicek et. al.'s paper
     """
@@ -31,7 +16,7 @@ class StimulusPDCMBOLD:
     def __init__(self, w=1.0,
                  sigma=0.5, mu=0.4, lamb=0.2, c=0.25,
                  psi=0.6, phi=1.5, chi=0.6,
-                 tMTT=2.0, tau=4.0, alpha=0.32, E0=0.4,
+                 tMTT=torch.tensor(2.0, requires_grad=True), tau=4.0, alpha=0.32, E0=0.4,
                  V0=4,
                  epsilon=0.3, theta0=80.6, r0=108.0, TE=35.0,
                  ignore_range=False,
@@ -82,6 +67,7 @@ class StimulusPDCMBOLD:
         self._r0 = r0  # sensitivity
         self._TE = TE/1000  # echo time, ms, 30-45
 
+
     # Stimulus
     def sti_u(self, t):
         """Function of the input stimulus, u(t), which
@@ -89,7 +75,7 @@ class StimulusPDCMBOLD:
         - is a rectangular function starting at t = 1s with width, w, by
           default
         """
-        return np.where(t >= 1 and t <= (self._w + 1), 1, 0)
+        return torch.where((t >= 1) & (t <= (self._w + 1)), torch.tensor(1.0), torch.tensor(0.0))
 
     # Equations and ODEs in P-DCM
     def ode_xE(self, u, xE, xI):
@@ -148,6 +134,7 @@ class StimulusPDCMBOLD:
         - q -- deoxyhemoglobin content
         - v -- blod volume
         """
+        # print(self._tMTT)
         return (f*(E/self._E0) - fout*(q/v))/self._tMTT
 
     def equ_E(self, f):
@@ -166,6 +153,7 @@ class StimulusPDCMBOLD:
         - f -- blood inflow response
         - couple -- is True when using CBF-CBV coupled model (i.e. tau = 0)
         """
+        # print(self._tMTT)
         if couple is True:
             return v**(1/self._alpha)
         return (1/(self._tau + self._tMTT)) * (
@@ -186,6 +174,12 @@ class StimulusPDCMBOLD:
 
         return self._V0 * (k1*(1 - q) + k2*(1 - q/v) + k3*(1 - v))
 
+
+    def setMTT(self, mtt):
+        self._tMTT = mtt
+
+    def getMTT(self):
+        return self._tMTT
 
 def time_ref(stimulus, analysis=False):
     """Produce a reference list of time values for iterations in numerical
@@ -214,7 +208,7 @@ def time_ref(stimulus, analysis=False):
     else:
         tf = 150
 
-    return np.arange(ti, tf, h)  # all t values
+    return torch.arange(ti, tf, h)  # all t values
 
 
 def time_select(t_ref, t_all, y_all):
@@ -231,7 +225,7 @@ def time_select(t_ref, t_all, y_all):
     for i in range(len(t_all)):
         if k < len(t_ref):
             # append when the item in t = the item in t_ref
-            if t_ref[k] - t_all[i] <= 1e-15:
+            if torch.abs(t_ref[k] - t_all[i]) <= 1e-15:
                 y_select.append(y_all[i])
                 k += 1
 
