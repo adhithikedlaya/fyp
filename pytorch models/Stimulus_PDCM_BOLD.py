@@ -16,7 +16,7 @@ class StimulusPDCMBOLD:
     def __init__(self, w=1.0,
                  sigma=0.5, mu=0.4, lamb=0.2, c=0.25,
                  psi=0.6, phi=1.5, chi=0.6,
-                 tMTT=torch.tensor(2.0, requires_grad=True), tau=4.0, alpha=0.32, E0=0.4,
+                 tMTT=2.0, tau=4.0, alpha=0.32, E0=0.4,
                  V0=4,
                  epsilon=0.3, theta0=80.6, r0=108.0, TE=35.0,
                  ignore_range=False,
@@ -180,6 +180,12 @@ class StimulusPDCMBOLD:
 
     def getMTT(self):
         return self._tMTT
+    
+    def setNeuronalVars(self, sigma, mu, lamb, c):
+        self._sigma = sigma
+        self._mu = mu
+        self._lamb = lamb
+        self._c = c
 
 def time_ref(stimulus, analysis=False):
     """Produce a reference list of time values for iterations in numerical

@@ -54,7 +54,7 @@ def generate_pink_noise(n, T, alpha, beta, scaling_factor=0.005):
     noise_time_domain = fft.irfft(C_k_complex, n)
     
     # Normalize noise to have unit variance - optional addition not in orignal algo?
-    noise_time_domain /= torch.std(noise_time_domain)
+    noise_time_domain = noise_time_domain / torch.std(noise_time_domain)
 
     return noise_time_domain * scaling_factor, C_k_complex
 

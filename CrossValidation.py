@@ -6,7 +6,7 @@ paper
 import numpy as np
 
 import Stimulus_PDCM_BOLD as spb
-import PlotFunctions as pf
+import scipy_models.PlotFunctions as pf
 from Euler_1stOrderForward import euler_1st
 # from RK_4thOrderForward import runge_kutta_4th
 

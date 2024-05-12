@@ -2,18 +2,178 @@
 """
 import numpy as np
 from scipy import fft as sp_fft
-from . import _signaltools
-from .windows import get_window
-from ._spectral import _lombscargle
-from ._arraytools import const_ext, even_ext, odd_ext, zero_ext
+# from . import _signaltools
+# from .windows import get_window
+# from ._spectral import _lombscargle
+# from ._arraytools import const_ext, even_ext, odd_ext, zero_ext
 import warnings
-
+from scipy import signal
 
 __all__ = ['periodogram', 'welch', 'lombscargle', 'csd', 'coherence',
            'spectrogram', 'stft', 'istft', 'check_COLA', 'check_NOLA']
 
+def detrend1(data, axis=-1, type='linear', bp=0, overwrite_data=False):
+    """
+    Remove linear trend along axis from data.
 
+    Parameters
+    ----------
+    data : array_like
+        The input data.
+    axis : int, optional
+        The axis along which to detrend the data. By default this is the
+        last axis (-1).
+    type : {'linear', 'constant'}, optional
+        The type of detrending. If ``type == 'linear'`` (default),
+        the result of a linear least-squares fit to `data` is subtracted
+        from `data`.
+        If ``type == 'constant'``, only the mean of `data` is subtracted.
+    bp : array_like of ints, optional
+        A sequence of break points. If given, an individual linear fit is
+        performed for each part of `data` between two break points.
+        Break points are specified as indices into `data`. This parameter
+        only has an effect when ``type == 'linear'``.
+    overwrite_data : bool, optional
+        If True, perform in place detrending and avoid a copy. Default is False
 
+    Returns
+    -------
+    ret : ndarray
+        The detrended input data.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> from scipy import signal
+    >>> rng = np.random.default_rng()
+    >>> npoints = 1000
+    >>> noise = rng.standard_normal(npoints)
+    >>> x = 3 + 2*np.linspace(0, 1, npoints) + noise
+    >>> (signal.detrend(x) - noise).max()
+    0.06  # random
+
+    """
+    if type not in ['linear', 'l', 'constant', 'c']:
+        raise ValueError("Trend type must be 'linear' or 'constant'.")
+    data = np.asarray(data)
+    dtype = data.dtype.char
+    if dtype not in 'dfDF':
+        dtype = 'd'
+    if type in ['constant', 'c']:
+        ret = data - np.mean(data, axis, keepdims=True)
+        return ret
+    else:
+        dshape = data.shape
+        N = dshape[axis]
+        bp = np.sort(np.unique(np.concatenate(np.atleast_1d(0, bp, N))))
+        if np.any(bp > N):
+            raise ValueError("Breakpoints must be less than length "
+                             "of data along given axis.")
+
+        # Restructure data so that axis is along first dimension and
+        #  all other dimensions are collapsed into second dimension
+        rnk = len(dshape)
+        if axis < 0:
+            axis = axis + rnk
+        newdata = np.moveaxis(data, axis, 0)
+        newdata_shape = newdata.shape
+        newdata = newdata.reshape(N, -1)
+
+        if not overwrite_data:
+            newdata = newdata.copy()  # make sure we have a copy
+        if newdata.dtype.char not in 'dfDF':
+            newdata = newdata.astype(dtype)
+
+#        Nreg = len(bp) - 1
+        # Find leastsq fit and remove it for each piece
+        for m in range(len(bp) - 1):
+            Npts = bp[m + 1] - bp[m]
+            A = np.ones((Npts, 2), dtype)
+            A[:, 0] = np.arange(1, Npts + 1, dtype=dtype) / Npts
+            sl = slice(bp[m], bp[m + 1])
+            coef, resids, rank, s = np.linalg.lstsq(A, newdata[sl])
+            newdata[sl] = newdata[sl] - A @ coef
+
+        # Put data back in original shape.
+        newdata = newdata.reshape(newdata_shape)
+        ret = np.moveaxis(newdata, 0, axis)
+        return ret
+    
+def _lombscargle(x, y, freqs):
+    """
+    _lombscargle(x, y, freqs)
+
+    Computes the Lomb-Scargle periodogram.
+
+    Parameters
+    ----------
+    x : array_like
+        Sample times.
+    y : array_like
+        Measurement values (must be registered so the mean is zero).
+    freqs : array_like
+        Angular frequencies for output periodogram.
+
+    Returns
+    -------
+    pgram : array_like
+        Lomb-Scargle periodogram.
+
+    Raises
+    ------
+    ValueError
+        If the input arrays `x` and `y` do not have the same shape.
+
+    See also
+    --------
+    lombscargle
+
+    """
+
+    # Check input sizes
+    if x.shape != y.shape:
+        raise ValueError("Input arrays do not have the same size.")
+
+    # Create empty array for output periodogram
+    pgram = np.empty_like(freqs)
+
+    c = np.empty_like(x)
+    s = np.empty_like(x)
+
+    for i in range(freqs.shape[0]):
+
+        xc = 0.
+        xs = 0.
+        cc = 0.
+        ss = 0.
+        cs = 0.
+
+        c[:] = np.cos(freqs[i] * x)
+        s[:] = np.sin(freqs[i] * x)
+
+        for j in range(x.shape[0]):
+            xc += y[j] * c[j]
+            xs += y[j] * s[j]
+            cc += c[j] * c[j]
+            ss += s[j] * s[j]
+            cs += c[j] * s[j]
+
+        if freqs[i] == 0:
+            raise ZeroDivisionError()
+
+        tau = np.arctan2(2 * cs, cc - ss) / (2 * freqs[i])
+        c_tau = np.cos(freqs[i] * tau)
+        s_tau = np.sin(freqs[i] * tau)
+        c_tau2 = c_tau * c_tau
+        s_tau2 = s_tau * s_tau
+        cs_tau = 2 * c_tau * s_tau
+
+        pgram[i] = 0.5 * (((c_tau * xc + s_tau * xs)**2 /
+            (c_tau2 * cc + cs_tau * cs + s_tau2 * ss)) +
+            ((c_tau * xs - s_tau * xc)**2 /
+             (c_tau2 * ss - cs_tau * cs + s_tau2 * cc)))
+
+    return pgram
 
 def lombscargle(x,
                 y,
@@ -912,7 +1072,7 @@ def check_COLA(window, nperseg, noverlap, tol=1e-10):
     noverlap = int(noverlap)
 
     if isinstance(window, str) or type(window) is tuple:
-        win = get_window(window, nperseg)
+        win = signal.get_window(window, nperseg)
     else:
         win = np.asarray(window)
         if len(win.shape) != 1:
@@ -1040,7 +1200,7 @@ def check_NOLA(window, nperseg, noverlap, tol=1e-10):
     noverlap = int(noverlap)
 
     if isinstance(window, str) or type(window) is tuple:
-        win = get_window(window, nperseg)
+        win = signal.get_window(window, nperseg)
     else:
         win = np.asarray(window)
         if len(win.shape) != 1:
@@ -1489,7 +1649,7 @@ def istft(Zxx, fs=1.0, window='hann', nperseg=None, noverlap=None, nfft=None,
 
     # Get window as array
     if isinstance(window, str) or type(window) is tuple:
-        win = get_window(window, nperseg)
+        win = signal.get_window(window, nperseg)
     else:
         win = np.asarray(window)
         if len(win.shape) != 1:
@@ -1766,10 +1926,11 @@ def _spectral_helper(x, y, fs=1.0, window='hann', nperseg=None, noverlap=None,
         raise ValueError("Unknown value for mode %s, must be one of: "
                          "{'psd', 'stft'}" % mode)
 
-    boundary_funcs = {'even': even_ext,
-                      'odd': odd_ext,
-                      'constant': const_ext,
-                      'zeros': zero_ext,
+    boundary_funcs = {
+        # even': even_ext,
+        #               'odd': odd_ext,
+        #               'constant': const_ext,
+        #               'zeros': zero_ext,
                       None: None}
 
     if boundary not in boundary_funcs:
@@ -1881,7 +2042,7 @@ def _spectral_helper(x, y, fs=1.0, window='hann', nperseg=None, noverlap=None,
             return d
     elif not hasattr(detrend, '__call__'):
         def detrend_func(d):
-            return _signaltools.detrend(d, type=detrend, axis=-1)
+            return detrend1(d, type=detrend, axis=-1)
     elif axis != -1:
         # Wrap this function so that it receives a shape that it could
         # reasonably expect to receive.
@@ -1999,6 +2160,7 @@ def _fft_helper(x, win, detrend_func, nperseg, noverlap, nfft, sides):
         )
         result = result[..., 0::step, :]
 
+
     # Detrend each data segment individually
     result = detrend_func(result)
 
@@ -2059,7 +2221,7 @@ def _triage_segments(window, nperseg, input_length):
                           f' = {input_length:d}, using nperseg = {input_length:d}',
                           stacklevel=3)
             nperseg = input_length
-        win = get_window(window, nperseg)
+        win = signal.get_window(window, nperseg)
     else:
         win = np.asarray(window)
         if len(win.shape) != 1:

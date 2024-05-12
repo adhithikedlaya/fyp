@@ -4,9 +4,9 @@ import torch
 import torch.optim as optim
 import torch.nn as nn
 import matplotlib.pyplot as plt
-from Euler_1stOrderForward import getEulerBOLD
+from Euler_1stOrderForward_Scipy import getEulerBOLD
 from scipy import signal
-import math
+import time
 
 def plot_csds(f, csdx, csdy):
     plt.xlim(0, 1)
@@ -20,8 +20,8 @@ def custom_loss(parameters, observed_signal):
     predicted_signal = forward(parameters)
     
     # Calculate the mean squared error as the loss using CSD???
-    f, csdx = signal.csd(predicted_signal.detach().numpy(), predicted_signal.detach().numpy(), fs=100, noverlap=None,  window='hamming', scaling='density', nfft=4096)
-    f, csdy = signal.csd(observed_signal.detach().numpy(), observed_signal.detach().numpy(), fs=100, noverlap=None,  window='hamming', scaling='density', nfft=4096)
+    f, csdx = signal.csd(predicted_signal, predicted_signal, fs=100, noverlap=None,  window='hamming', scaling='density', nfft=4096)
+    f, csdy = signal.csd(observed_signal, observed_signal, fs=100, noverlap=None,  window='hamming', scaling='density', nfft=4096)
     
     # plot_csds(f, csdx, csdy)
     print(csdx.shape)
@@ -31,22 +31,26 @@ def custom_loss(parameters, observed_signal):
     
     # Combine the losses for real and imaginary parts
     loss = mse_real + mse_imaginary
-    print(loss * 100000)
-    return loss * 100000
+    print("Loss: ", loss * 100000)
+    print("Parameters: ", parameters)
+    return loss
     
 def forward(parameters):
     # Call the EULER BOLD function using chosen alpha and beta noise parameters (TODO: add MTT as a param too)
-    _, yhat = getEulerBOLD(parameters[0], parameters[1], parameters[2], noise=True, length=1000)
+    _, yhat = getEulerBOLD(parameters[0], noise=True, length=1000)
     return yhat
 
 # Use simulated signal as ground truth
 _, observed_signal = getEulerBOLD(2, 1, 1, True)
 
 # Initial parameters
-initial_parameters = [1, 1, 1]
+initial_parameters = [1]
 
 # Minimize the loss function to learn the parameters
-result = minimize(custom_loss, initial_parameters, args=(observed_signal,))
+start_time = time.perf_counter()
+result = minimize(custom_loss, initial_parameters, args=(observed_signal,), method='Powell', tol=1e-4)
+end_time = time.perf_counter()
 learned_parameters = result.x
+print(end_time - start_time)
 
 print("Learned parameters:", learned_parameters)

@@ -225,7 +225,9 @@ def _fft_helper(x, win, detrend_func, nperseg, noverlap, nfft, sides):
         result = sliding_window_view(
             x, window_shape=nperseg, axis=-1,
         )
-        result = result.unsqueeze(-2)
+        result = result[..., 0::step, :]
+
+
 
     result = detrend_func(result)
 
@@ -412,7 +414,6 @@ def _spectral_helper(x, y, fs=1.0, window='hann', nperseg=None, noverlap=None,
         outdtype = torch.result_type(x, y)
     else:
         outdtype = torch.result_type(x, x)
-
     if not same_data:
         # Check if we can broadcast the outer axes together
         xouter = list(x.shape)
@@ -544,10 +545,8 @@ def _spectral_helper(x, y, fs=1.0, window='hann', nperseg=None, noverlap=None,
         freqs = fftfreq(nfft, 1/fs)
     elif sides == 'onesided':
         freqs = rfftfreq(nfft, 1/fs)
-
     # Perform the windowed FFTs
     result = _fft_helper(x, win, detrend_func, nperseg, noverlap, nfft, sides)
-
     if not same_data:
         # All the same operations on the y data
         result_y = _fft_helper(y, win, detrend_func, nperseg, noverlap, nfft,
@@ -716,7 +715,7 @@ def csd(x, y, fs=1.0, window='hann', nperseg=None, noverlap=None, nfft=None,
     freqs, _, Pxy = _spectral_helper(x, y, fs, window, nperseg, noverlap,
                                      nfft, detrend, return_onesided, scaling,
                                      axis, mode='psd')
-
+    
         # Average over windows.
     if len(Pxy.shape) >= 2 and Pxy.numel() > 0:
         if Pxy.shape[-1] > 1:
