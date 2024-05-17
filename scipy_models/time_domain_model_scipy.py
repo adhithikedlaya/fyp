@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 from Euler_1stOrderForward_Scipy import getEulerBOLD
 from scipy import signal
 import time
+from skopt import gp_minimize
+from skopt.space import Real
+from skopt.utils import use_named_args
 
 def plot_csds(f, csdx, csdy):
     plt.xlim(0, 1)
@@ -15,7 +18,7 @@ def plot_csds(f, csdx, csdy):
     plt.legend()
     plt.show()
 
-def custom_loss(parameters, observed_signal):
+def custom_loss(parameters):
     # Generate signal using the function with the given parameters
     predicted_signal = forward(parameters)
     
@@ -41,16 +44,33 @@ def forward(parameters):
     return yhat
 
 # Use simulated signal as ground truth
-_, observed_signal = getEulerBOLD(2, 1, 1, True)
+_, observed_signal = getEulerBOLD(2, 1, 1, True, length=1000)
 
-# Initial parameters
-initial_parameters = [1]
 
 # Minimize the loss function to learn the parameters
+
+param_space = [Real(low=0.0, high=5.0, name='mtt'),
+               # Add more parameters as needed
+              ]
+
 start_time = time.perf_counter()
-result = minimize(custom_loss, initial_parameters, args=(observed_signal,), method='Powell', tol=1e-4)
+# Run optimization
+result = gp_minimize(custom_loss,                  # the function to minimize
+                     param_space,                  # the bounds on each dimension of x
+                     acq_func="gp_hedge",               # the acquisition function
+                     n_calls=40,                  # the number of evaluations of f
+                     n_random_starts=3,           # the number of random initialization points
+                     random_state=1234)            # the random seed
+
+# Result will contain the optimized parameters and the minimum value found
+optimized_params = result.x
 end_time = time.perf_counter()
-learned_parameters = result.x
 print(end_time - start_time)
 
-print("Learned parameters:", learned_parameters)
+# start_time = time.perf_counter()
+# result = minimize(custom_loss, initial_parameters, args=(observed_signal,), method='Powell', tol=1e-4)
+# end_time = time.perf_counter()
+# learned_parameters = result.x
+# print(end_time - start_time)
+
+print("Learned parameters:", optimized_params)

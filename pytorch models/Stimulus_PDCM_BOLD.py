@@ -175,17 +175,13 @@ class StimulusPDCMBOLD:
         return self._V0 * (k1*(1 - q) + k2*(1 - q/v) + k3*(1 - v))
 
 
-    def setMTT(self, mtt):
-        self._tMTT = mtt
-
     def getMTT(self):
         return self._tMTT
-    
-    def setNeuronalVars(self, sigma, mu, lamb, c):
-        self._sigma = sigma
-        self._mu = mu
-        self._lamb = lamb
-        self._c = c
+
+    def setParams(self, **kwargs):
+        for param, value in kwargs.items():
+            setattr(self, "_"+param, value)
+        
 
 def time_ref(stimulus, analysis=False):
     """Produce a reference list of time values for iterations in numerical

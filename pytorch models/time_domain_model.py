@@ -22,9 +22,9 @@ def csd_no_window(x, y, nfft=4096):
     
     return cross_spectrum
   
-x_train_tensor, y_train_tensor = getEulerBOLD(torch.tensor(2.0, requires_grad=True), torch.tensor(0.8, requires_grad=True), torch.tensor(0.3, requires_grad=True), torch.tensor(0.5, requires_grad=True), torch.tensor(0.6, requires_grad=True), 1.0, torch.tensor(1.0, requires_grad=True), True, 1000)
+# x_train_tensor, y_train_tensor = getEulerBOLD(sigma=torch.tensor(0.8, requires_grad=True), mu = torch.tensor(0.3, requires_grad=True), lamb = torch.tensor(0.5, requires_grad=True), alpha= 1.0, beta=torch.tensor(1.0, requires_grad=True), noise =True, length=1000)
 # y_train_tensor = np.loadtxt('./time_series/sub-001-PLCB-ROI0.txt', delimiter=',')
-f2, csdy = csd(y_train_tensor, y_train_tensor, fs=100, noverlap=None,  window='hamming', scaling='density', nfft=4096, nperseg=1000)
+# f2, csdy = csd(y_train_tensor, y_train_tensor, fs=100, noverlap=None,  window='hamming', scaling='density', nfft=4096, nperseg=1000)
 # f2, csdy = csd(target, target, fs=0.5, noverlap=None,  window='hamming', scaling='density', nfft=4096, nperseg=200)
 
 class TimeDomainModel(nn.Module):
@@ -33,17 +33,15 @@ class TimeDomainModel(nn.Module):
         # assuming we are fitting noise parameters for now? - how would multiple regions work?
         # self.alpha = nn.Parameter(torch.tensor(1.0))
         # self.beta = nn.Parameter(torch.tensor(1.0))
-        self.mtt = nn.Parameter(torch.tensor(1.5))
         self.sigma = nn.Parameter(torch.tensor(0.5))
         self.mu = nn.Parameter(torch.tensor(0.4))
         self.lamb = nn.Parameter(torch.tensor(0.2))
-        self.c = nn.Parameter(torch.tensor(0.25))
         self.beta = nn.Parameter(torch.tensor(1.0))
 
 
     def forward(self):
         #GET BOLD SIGNAL from PDCM WITH NOISE ADDED
-        _, yhat = getEulerBOLD(self.mtt, self.sigma, self.mu, self.lamb, self.c, 1.0, self.beta, True, 1000)
+        _, yhat = getEulerBOLD(sigma=self.sigma, mu = self.mu, lamb=self.lamb, alpha= 1.0, beta=self.beta, noise=True, length=1000)
         yhat = torch.stack(yhat)
         return yhat
         # return torch.tensor(yhat, requires_grad=True)
@@ -54,8 +52,8 @@ model = TimeDomainModel().to(device)
 lr = 0.2
 n_epochs = 20
 
-
-def complex_mse_loss(output):
+#figure out what t osave?
+def complex_mse_loss(output, csdy):
     # downsampled_output = output[::200][:len(target)]
     # downsampled_output = output
     # plt.plot(np.arange(len(output)), [x.detach().numpy() for x in downsampled_output], label='simulated BOLD')
@@ -85,7 +83,9 @@ def complex_mse_loss(output):
     return loss
 
 
-def train():
+def train(observed_bold):
+    f2, observed_csd = csd(observed_bold, observed_bold, fs=0.5, noverlap=None,  window='hamming', scaling='density', nfft=4096, nperseg=200)
+
     optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=1e-4)
     scheduler = ExponentialLR(optimizer, gamma=0.9)
 
@@ -94,7 +94,7 @@ def train():
     for epoch in range(n_epochs):
         print("Epoch: ", epoch)
         yhat = model()
-        loss = complex_mse_loss(yhat)
+        loss = complex_mse_loss(yhat, observed_csd)
         print("Loss: ", loss)
         print("Params: ", model.mtt, model.sigma, model.mu, model.lamb, model.c, model.beta)
         optimizer.zero_grad()
@@ -114,8 +114,15 @@ def train():
 
     print(model.mtt)
 
-torch.set_printoptions(precision=8)
-train()
+
+if __name__ == "__main__":
+    torch.set_printoptions(precision=8)
+    subj = sys.argv[1].zfill(3)
+    roi = sys.argv[2]
+    fname = f"sub-{subj}-PLCB-ROI{roi}.txt"
+    print(fname)
+    y_train_tensor = np.loadtxt('./time_series/'+fname , delimiter=',')
+    train(y_train_tensor)
 
 #main needs to take in a subject number, lsd or plcb and roi
 # if __name__ == "__main__":

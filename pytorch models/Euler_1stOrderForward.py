@@ -76,6 +76,8 @@ def euler_1st(func, t, h, var_init, indicator,  alpha, beta, select=False, add_n
                                           couple=False)
         E_val_next = func.equ_E(f=f_val_next)
         y_val_next = func.equ_y(q=q_val_next, v=v_val_next)
+        if not torch.is_tensor(y_val_next):
+            y_val_next = torch.tensor(y_val_next, requires_grad=True)
         # Append results
         if select is False:
             u_list.append(u_val)
@@ -125,13 +127,9 @@ def euler_1st(func, t, h, var_init, indicator,  alpha, beta, select=False, add_n
         return t_list, y_list
 
 
-def getEulerBOLD(mtt, sigma=None, mu=None, lamb=None, c=None, alpha=None, beta=None, noise=False, length=None):
+def getEulerBOLD(alpha=1.0, beta=1.0, noise=False, length=None, **kwargs):
 
-    # Iteration values
-    func.setMTT(mtt)  # Use the tensor instead of the scalar mtt
-    if sigma != None:
-        func.setNeuronalVars(sigma, mu, lamb, c)
-
+    func.setParams(**kwargs)
     t_ref = spb.time_ref(stimulus)  # controls initial and final t
     h = 0.01  # step size, unit: sec
     if length == None:
@@ -149,5 +147,29 @@ def getEulerBOLD(mtt, sigma=None, mu=None, lamb=None, c=None, alpha=None, beta=N
 
     # Return the tensors you want to compute gradients with respect to
     return t, y_list
+
+
+
+
+def getEulerFandV(alpha=1.0, beta=1.0, noise=False, length=None, **kwargs):
+
+    func.setParams(**kwargs)
+    t_ref = spb.time_ref(stimulus)  # controls initial and final t
+    h = 0.01  # step size, unit: sec
+    if length == None:
+        t = torch.arange(t_ref[0], t_ref[-1] + t_ref[1], h)  # all t values
+    else:
+        t = torch.arange(t_ref[0], length + t_ref[1], h)
+
+    # Initial conditions
+    var_init = [spb.xE_init, spb.xI_init, spb.a_init, spb.f_init, spb.v_init,
+                spb.q_init, spb.fout_init, spb.E_init, spb.y_init]
+
+    # Results
+    (u_list, xE_list, xI_list, a_list, f_list, v_list, q_list, fout_list,
+     E_list, y_list) = euler_1st(func, t, h, var_init, indicator, alpha, beta, False, noise)
+
+    # Return the tensors you want to compute gradients with respect to
+    return t, f_list, v_list
 
 #getEulerBOLD(3, 1, True, None)
