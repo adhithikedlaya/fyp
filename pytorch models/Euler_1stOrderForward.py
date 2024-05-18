@@ -19,6 +19,7 @@ func = spb.StimulusPDCMBOLD(w=stimulus, mu=1, lamb=0.2,
 # func = spb.StimulusPDCMBOLD(w=stimulus, mu=1, lamb=0.2,
 #                             c=0.3)  # solid thick line
 
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 def euler_1st(func, t, h, var_init, indicator,  alpha, beta, select=False, add_noise=False):
     """Run the first-order forward Euler method and return the final list of y
@@ -52,9 +53,9 @@ def euler_1st(func, t, h, var_init, indicator,  alpha, beta, select=False, add_n
     q_list = [q_val]
     E_list = [E_val]
     fout_list = [fout_val]
-    y_list = [torch.tensor(y_val, requires_grad=True)]
+    y_list = [torch.tensor(y_val, requires_grad=True).to(device)]
     if add_noise:
-        noise, _ = generate_pink_noise(len(t), t[-1], alpha, beta) #check
+        noise, _ = generate_pink_noise(len(t), t[-1], alpha, beta).to(device) #check
     for i in range(0, len(t)-1):
         # Stimulus
         u_val = func.sti_u(t[i])
@@ -77,7 +78,7 @@ def euler_1st(func, t, h, var_init, indicator,  alpha, beta, select=False, add_n
         E_val_next = func.equ_E(f=f_val_next)
         y_val_next = func.equ_y(q=q_val_next, v=v_val_next)
         if not torch.is_tensor(y_val_next):
-            y_val_next = torch.tensor(y_val_next, requires_grad=True)
+            y_val_next = torch.tensor(y_val_next, requires_grad=True).to(device)
         # Append results
         if select is False:
             u_list.append(u_val)
@@ -110,15 +111,15 @@ def euler_1st(func, t, h, var_init, indicator,  alpha, beta, select=False, add_n
 
     u_list.append(func.sti_u(t[-1]))
     if select is False:
-        u_list = torch.tensor(u_list)
-        xE_list = torch.tensor(xE_list)
-        xI_list = torch.tensor(xI_list)
-        a_list = torch.tensor(a_list)
-        f_list = torch.tensor(f_list)
-        v_list = torch.tensor(v_list)
-        q_list = torch.tensor(q_list)
-        fout_list = torch.tensor(fout_list)
-        E_list = torch.tensor(E_list)
+        u_list = torch.tensor(u_list).to(device)
+        xE_list = torch.tensor(xE_list).to(device)
+        xI_list = torch.tensor(xI_list).to(device)
+        a_list = torch.tensor(a_list).to(device)
+        f_list = torch.tensor(f_list).to(device)
+        v_list = torch.tensor(v_list).to(device)
+        q_list = torch.tensor(q_list).to(device)
+        fout_list = torch.tensor(fout_list).to(device)
+        E_list = torch.tensor(E_list).to(device)
         # y_list = torch.tensor(y_list, requires_grad=True)
         # print("u_val", torch.autograd.grad(y_val_next, func.getMTT(), retain_graph=True))
         return (u_list, xE_list, xI_list, a_list, f_list, v_list, q_list,
@@ -133,9 +134,9 @@ def getEulerBOLD(alpha=1.0, beta=1.0, noise=False, length=None, **kwargs):
     t_ref = spb.time_ref(stimulus)  # controls initial and final t
     h = 0.01  # step size, unit: sec
     if length == None:
-        t = torch.arange(t_ref[0], t_ref[-1] + t_ref[1], h)  # all t values
+        t = torch.arange(t_ref[0], t_ref[-1] + t_ref[1], h).to(device) # all t values
     else:
-        t = torch.arange(t_ref[0], length + t_ref[1], h)
+        t = torch.arange(t_ref[0], length + t_ref[1], h).to(device)
 
     # Initial conditions
     var_init = [spb.xE_init, spb.xI_init, spb.a_init, spb.f_init, spb.v_init,
