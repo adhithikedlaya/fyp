@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model_copy.py", line 148, in <module>
+    train(observed_csd, f2, name)
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model_copy.py", line 88, in train
+    final_y = final_y / torch.std(final_y)
+                        ^^^^^^^^^^^^^^^^^^
+TypeError: std() received an invalid combination of arguments - got (list), but expected one of:
+ * (Tensor input, tuple of ints dim, bool unbiased, bool keepdim, *, Tensor out)
+ * (Tensor input, tuple of ints dim, *, Number correction, bool keepdim, Tensor out)
+ * (Tensor input, bool unbiased)
+ * (Tensor input, tuple of names dim, bool unbiased, bool keepdim, *, Tensor out)
+ * (Tensor input, tuple of names dim, *, Number correction, bool keepdim, Tensor out)
+

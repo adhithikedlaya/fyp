@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model_simulated.py", line 129, in <module>
+    train(csdy, name)
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model_simulated.py", line 67, in train
+    scheduler.step()
+    ^^^^^^^^^
+NameError: name 'scheduler' is not defined

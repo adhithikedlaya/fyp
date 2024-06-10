@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model_copy.py", line 158, in <module>
+    train(observed_csd, f2, name)
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model_copy.py", line 87, in train
+    loss = complex_mse_loss(yhat, observed_csd, f)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model_copy.py", line 57, in complex_mse_loss
+    mask_f2 = (f >= 0) & (f2 <= freq_range)
+              ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (10000) must match the size of tensor b (64) at non-singleton dimension 0

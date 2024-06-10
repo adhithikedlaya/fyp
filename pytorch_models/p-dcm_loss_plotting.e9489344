@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/loss_plotting.py", line 79, in <module>
+    # plot_heatmap(('lamb', lambdas), ('mu', mus))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/loss_plotting.py", line 64, in plot_heatmap
+    json.dump(all_losses, f)
+  File "/rds/general/user/ak1920/home/anaconda3/envs/pytorch_env/lib/python3.11/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "/rds/general/user/ak1920/home/anaconda3/envs/pytorch_env/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/rds/general/user/ak1920/home/anaconda3/envs/pytorch_env/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ndarray is not JSON serializable

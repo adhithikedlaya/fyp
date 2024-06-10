@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model_simulated.py", line 125, in <module>
+    y_train_tensor = y_train_tensor / torch.std(y_train_tensor)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: std() received an invalid combination of arguments - got (list), but expected one of:
+ * (Tensor input, tuple of ints dim, bool unbiased, bool keepdim, *, Tensor out)
+ * (Tensor input, tuple of ints dim, *, Number correction, bool keepdim, Tensor out)
+ * (Tensor input, bool unbiased)
+ * (Tensor input, tuple of names dim, bool unbiased, bool keepdim, *, Tensor out)
+ * (Tensor input, tuple of names dim, *, Number correction, bool keepdim, Tensor out)
+

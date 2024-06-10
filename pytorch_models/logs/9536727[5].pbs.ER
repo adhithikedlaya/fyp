@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model.py", line 128, in <module>
+    train(observed_csd, name)
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model.py", line 58, in train
+    loss = complex_mse_loss(yhat, observed_csd, f)
+                                                ^
+UnboundLocalError: cannot access local variable 'f' where it is not associated with a value

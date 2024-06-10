@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model_simulated.py", line 129, in <module>
+    train_multiple(csdy, name)
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model_simulated.py", line 99, in train_multiple
+    loss = complex_mse_loss(outputs, observed_csd)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: complex_mse_loss() missing 1 required positional argument: 'f2'

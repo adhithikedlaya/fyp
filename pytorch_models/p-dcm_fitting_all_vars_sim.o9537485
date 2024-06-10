@@ -1,0 +1,24 @@
+/rds/general/user/ak1920/home/fyp/fyp/pytorch_models
+Input data is complex, switching to return_onesided=False
+Model 0 Epoch: 0
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(0.00357591, grad_fn=<AddBackward0>)
+Params:  Parameter containing:
+tensor(0.89999998, requires_grad=True) Parameter containing:
+tensor(0.80000001, requires_grad=True) Parameter containing:
+tensor(0.30000001, requires_grad=True) Parameter containing:
+tensor(0.20000000, requires_grad=True) Parameter containing:
+tensor(0.50000000, requires_grad=True) Parameter containing:
+tensor(2., requires_grad=True) Parameter containing:
+tensor(0.30000001, requires_grad=True)
+Model 0 Epoch: 1
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(0.00415203, grad_fn=<AddBackward0>)
+Params:  Parameter containing:
+tensor(0.90999991, requires_grad=True) Parameter containing:
+tensor(0.80999994, requires_grad=True) Parameter containing:
+tensor(0.30999997, requires_grad=True) Parameter containing:
+tensor(0.19000000, requires_grad=True) Parameter containing:
+tensor(0.50999999, requires_grad=True) Parameter containing:
+tensor(1.99000001, requires_grad=True) Parameter containing:
+tensor(0.31000000, requires_grad=True)

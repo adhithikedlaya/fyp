@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model_copy.py", line 158, in <module>
+    train(observed_csd, f2, name)
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model_copy.py", line 87, in train
+    loss = complex_mse_loss(yhat, observed_csd, f)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/rds/general/user/ak1920/home/fyp/fyp/pytorch_models/time_domain_model_copy.py", line 68, in complex_mse_loss
+    mse_real = torch.mean(torch.abs(torch.real(csdx_downsampled) - torch.real(csdy))**2)
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (13) must match the size of tensor b (64) at non-singleton dimension 0
