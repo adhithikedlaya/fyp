@@ -19,12 +19,6 @@ stimulus = 1  # stimulus duration (unit: sec)
 func = spb.StimulusPDCMBOLD_Scipy(w=stimulus, mu=1, lamb=0.2,
                             c=1)  # solid thick line
 
-# Reproduce Fig. 4
-# stimulus = 30
-# func = spb.StimulusPDCMBOLD(w=stimulus, mu=1, lamb=0.2,
-#                             c=0.3)  # solid thick line
-
-
 def euler_1st(func, t, h, var_init, indicator,  alpha, beta, select=False, add_noise=False):
     """Run the first-order forward Euler method and return the final list of y
        (BOLD)
@@ -48,7 +42,7 @@ def euler_1st(func, t, h, var_init, indicator,  alpha, beta, select=False, add_n
      ) = var_init
 
     # List for plotting
-    t_list = [t[0]]  # Ourput list if select=True
+    t_list = [t[0]]  # Output list if select=True
     u_list = []
     xE_list = [xE_val]
     xI_list = [xI_val]
@@ -60,7 +54,7 @@ def euler_1st(func, t, h, var_init, indicator,  alpha, beta, select=False, add_n
     fout_list = [fout_val]
     y_list = [y_val]
     if add_noise:
-        noise, _ = generate_pink_noise(len(t), t[-1], alpha, beta) #check
+        noise, _ = generate_pink_noise(len(t), t[-1], alpha, beta)
     for i in range(0, len(t)-1):
         # Stimulus
         u_val = func.sti_u(t[i])
@@ -151,13 +145,4 @@ def getEulerBOLD(mtt, alpha=1.0, beta=1.0, noise=True, length=1000):
     # Results
     (u_list, xE_list, xI_list, a_list, f_list, v_list, q_list, fout_list,
      E_list, y_list) = euler_1st(func, t, h, var_init, indicator, alpha, beta, False, noise)
-
-    # plt.plot(t, y_list)
-    # plt.xlabel('Time (s)')
-    # plt.ylabel('Magnitude')
-    # plt.title('P-DCM HRF')
-    # plt.show()
-    # print(y_list)
     return t, y_list
-
-getEulerBOLD(10, 1, True)

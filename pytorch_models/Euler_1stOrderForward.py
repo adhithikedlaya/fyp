@@ -8,7 +8,6 @@ import math
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-
 indicator = True  # True for CBF-CBV coupling, False for uncoupling
 plot_all = True  # plot all variables together
 
@@ -16,11 +15,6 @@ plot_all = True  # plot all variables together
 stimulus = 1  # stimulus duration (unit: sec)
 func = spb.StimulusPDCMBOLD(w=stimulus, mu=1, lamb=0.2,
                             c=1)  # solid thick line - TMTT would need to go in here - move to getEulerBOLD
-
-# Reproduce Fig. 4
-# stimulus = 30
-# func = spb.StimulusPDCMBOLD(w=stimulus, mu=1, lamb=0.2,
-#                             c=0.3)  # solid thick line
 
 
 def euler_1st(func, t, h, var_init, indicator,  alpha, beta, select=False, add_noise=False):
@@ -45,7 +39,7 @@ def euler_1st(func, t, h, var_init, indicator,  alpha, beta, select=False, add_n
     (xE_val, xI_val, a_val, f_val, v_val, q_val, fout_val, E_val, y_val
      ) = var_init
     # List for plotting
-    t_list = [t[0]]  # Ourput list if select=True
+    t_list = [t[0]]  # Output list if select=True
     u_list = []
     xE_list = [xE_val]
     xI_list = [xI_val]
@@ -57,7 +51,7 @@ def euler_1st(func, t, h, var_init, indicator,  alpha, beta, select=False, add_n
     fout_list = [fout_val]
     y_list = [torch.tensor(y_val, requires_grad=True).to(device)]
     if add_noise:
-        noise, _ = generate_pink_noise(len(t), t[-1], alpha, beta) #check
+        noise, _ = generate_pink_noise(len(t), t[-1], alpha, beta)
     for i in range(0, len(t)-1):
         # Stimulus
         u_val = func.sti_u(t[i])
@@ -122,8 +116,6 @@ def euler_1st(func, t, h, var_init, indicator,  alpha, beta, select=False, add_n
         q_list = torch.tensor(q_list)
         fout_list = torch.tensor(fout_list)
         E_list = torch.tensor(E_list)
-        # y_list = torch.tensor(y_list, requires_grad=True)
-        # print("u_val", torch.autograd.grad(y_val_next, func.getMTT(), retain_graph=True))
         return (u_list, xE_list, xI_list, a_list, f_list, v_list, q_list,
                 fout_list, E_list, y_list)
     else:
@@ -174,5 +166,3 @@ def getEulerFandV(alpha=1.0, beta=1.0, noise=False, length=None, **kwargs):
 
     # Return the tensors you want to compute gradients with respect to
     return t, f_list, v_list
-
-getEulerBOLD(3, 1, True, None)
