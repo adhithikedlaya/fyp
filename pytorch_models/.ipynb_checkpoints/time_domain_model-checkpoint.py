@@ -153,7 +153,7 @@ if __name__ == "__main__":
     name = f"sub-{subj}-{exp}-ROI{roi}"
     fname = f"{name}.txt"
     print(fname)
-    observed_bold = np.loadtxt('/rds/general/user/ak1920/home/fyp/fyp/time_series_take_2/'+fname , delimiter=',')
+    observed_bold = np.loadtxt('/rds/general/user/ak1920/home/fyp/fyp/time_series/'+fname , delimiter=',')
     observed_bold = torch.from_numpy(observed_bold).to(device)
     observed_bold = observed_bold / torch.std(observed_bold)
     f2, observed_csd = csd(observed_bold, observed_bold, fs=0.5, nperseg=100)

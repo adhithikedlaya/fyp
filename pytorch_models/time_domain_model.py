@@ -13,14 +13,6 @@ import time
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
   
-# x_train_tensor, y_train_tensor = getEulerBOLD(noise=True, length=500)
-# print("got here")
-# f2, csdy = csd(y_train_tensor[::200][-217:], y_train_tensor[::200][-217:], fs=0.5, nperseg=64)
-# print("got here 2")
-# csdy = csdy / torch.std(csdy)
-# f2, csdy = csd(target, target, fs=0.5, noverlap=None,  window='hamming', scaling='density', nfft=4096, nperseg=200)
-# y_train_tensor = np.loadtxt('./time_series/sub-001-PLCB-ROI0.txt', delimiter=',')
-
 def get_torch_rand(min, max):
     return torch.rand(()) * (max - min) + min
 
@@ -38,38 +30,23 @@ class TimeDomainModel(nn.Module):
 
 
     def forward(self):
-        #GET BOLD SIGNAL from PDCM WITH NOISE ADDED
         _, yhat = getEulerBOLD(sigma=self.sigma, mu=self.mu, lamb=self.lamb, alpha=1.0, beta=self.beta, noise=True, length=1000, phi=self.phi, psi=self.psi, chi=self.chi)
         yhat = torch.stack(yhat)
         return yhat
-        # return torch.tensor(yhat, requires_grad=True)
 
     
 
 
 
 def complex_mse_loss(output, csdy, fo):
-#     f1, csdx = csd(output, output, fs=100, noverlap=None,  window='hamming', scaling='density', nfft=4096, nperseg=1000)
     output = output / torch.std(output)
     f, csdx = csd(output, output, fs=100, nperseg=20000)
 
     mask_f = torch.isin(f, fo)
     csdx_ds = csdx[mask_f]
-    
-    # Define the frequency range
-    min_freq = 0
-    max_freq = 0.1
-
-    # Get the indices of the frequencies within the desired range
-    freq_indices = (fo >= min_freq) & (fo <= max_freq)
-
-    # Extract the corresponding CSDs
-    csdx_ds = csdx_ds[freq_indices]
-    csdy = csdy[freq_indices]
-    
     mse_real = torch.mean(torch.abs(torch.real(csdx_ds) - torch.real(csdy))**2)
-#     mse_imaginary = torch.mean(torch.abs(torch.imag(csdx) - torch.imag(csdy))**2)
-    loss = mse_real
+    mse_imaginary = torch.mean(torch.abs(torch.imag(csdx) - torch.imag(csdy))**2)
+    loss = mse_real + mse_imaginary
 
     return loss
 
@@ -77,7 +54,7 @@ def complex_mse_loss(output, csdy, fo):
 def train(observed_csd, f, name):
     model = TimeDomainModel().to(device)
     lr = 0.01
-    n_epochs = 150
+    n_epochs = 100
     optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=1e-4)
     scheduler = ExponentialLR(optimizer, gamma=0.9)
 
@@ -100,21 +77,20 @@ def train(observed_csd, f, name):
     final_y = torch.stack(final_y)
     final_y = final_y / torch.std(final_y)
     f, csdx = csd(final_y, final_y, fs=100, nperseg=20000)
-    np.savetxt(f"final_spectrum_take_2_{name}.txt", csdx.detach().numpy(), delimiter=',')
+    np.savetxt(f"final_spectrum_{name}.txt", csdx.detach().numpy(), delimiter=',')
         
 
-    # Save losses array as JSON
+
     with open(f'losses-{name}.json', 'w') as f:
         json.dump(losses, f)
 
 def train_multiple(observed_csd, name):
     lr = 0.01
-    # scheduler = ExponentialLR(optimizer, gamma=0.9)
+    scheduler = ExponentialLR(optimizer, gamma=0.9)
 
     num_initializations = 5
     models = [TimeDomainModel().to(device) for _ in range(num_initializations)]
 
-# Train each instance separately using gradient descent
     num_epochs = 30
     model_losses = []
     for i, model in enumerate(models):
@@ -128,15 +104,13 @@ def train_multiple(observed_csd, name):
             print("Loss: ", loss)
             print("Params: ", model.sigma, model.mu, model.lamb, model.beta, model.psi, model.phi, model.chi)
             losses.append(loss.item())
-            # Backward pass and optimization
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
+            scheduler.step()
         model_losses.append(losses)
 
-    # Evaluate the performance of each instance based on the final loss
-
-    # Select the instance with the lowest loss
+    # Select the model with the lowest loss
     best_model_idx = min(range(len(model_losses)), key=lambda i: model_losses[i][-1])
     print(best_model_idx, model_losses[best_model_idx][-1])
     best_model = models[best_model_idx]
@@ -153,7 +127,7 @@ if __name__ == "__main__":
     name = f"sub-{subj}-{exp}-ROI{roi}"
     fname = f"{name}.txt"
     print(fname)
-    observed_bold = np.loadtxt('/rds/general/user/ak1920/home/fyp/fyp/time_series_take_2/'+fname , delimiter=',')
+    observed_bold = np.loadtxt('/rds/general/user/ak1920/home/fyp/fyp/time_series/'+fname , delimiter=',')
     observed_bold = torch.from_numpy(observed_bold).to(device)
     observed_bold = observed_bold / torch.std(observed_bold)
     f2, observed_csd = csd(observed_bold, observed_bold, fs=0.5, nperseg=100)
