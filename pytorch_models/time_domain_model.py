@@ -12,43 +12,74 @@ from torch.optim.lr_scheduler import ExponentialLR
 import time
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
+  
+# x_train_tensor, y_train_tensor = getEulerBOLD(noise=True, length=500)
+# print("got here")
+# f2, csdy = csd(y_train_tensor[::200][-217:], y_train_tensor[::200][-217:], fs=0.5, nperseg=64)
+# print("got here 2")
+# csdy = csdy / torch.std(csdy)
+# f2, csdy = csd(target, target, fs=0.5, noverlap=None,  window='hamming', scaling='density', nfft=4096, nperseg=200)
+# y_train_tensor = np.loadtxt('./time_series/sub-001-PLCB-ROI0.txt', delimiter=',')
 
 def get_torch_rand(min, max):
     return torch.rand(()) * (max - min) + min
 
+
 class TimeDomainModel(nn.Module):
     def __init__(self):
         super().__init__()
-        self.sigma = nn.Parameter(torch.tensor(0.5))
-        self.mu = nn.Parameter(torch.tensor(0.4))
-        self.lamb = nn.Parameter(torch.tensor(0.2))
-        self.beta = nn.Parameter(torch.tensor(0.5))
-        self.psi = nn.Parameter(torch.tensor(0.6))
-        self.phi = nn.Parameter(torch.tensor(1.5))
-        self.chi = nn.Parameter(torch.tensor(0.6))
+        self.sigma = nn.Parameter(torch.tensor(0.9))
+        self.mu = nn.Parameter(torch.tensor(0.8))
+        self.lamb = nn.Parameter(torch.tensor(0.3))
+        self.beta = nn.Parameter(torch.tensor(0.2))
+        self.psi = nn.Parameter(torch.tensor(0.5))
+        self.phi = nn.Parameter(torch.tensor(2.0))
+        self.chi = nn.Parameter(torch.tensor(0.3))
 
 
     def forward(self):
         #GET BOLD SIGNAL from PDCM WITH NOISE ADDED
-        _, yhat = getEulerBOLD(sigma=self.sigma, mu=self.mu, lamb=self.lamb, alpha=1.0, beta=self.beta, noise=True, length=500, phi=self.phi, psi=self.psi, chi=self.chi)
+        _, yhat = getEulerBOLD(sigma=self.sigma, mu=self.mu, lamb=self.lamb, alpha=1.0, beta=self.beta, noise=True, length=1000, phi=self.phi, psi=self.psi, chi=self.chi)
         yhat = torch.stack(yhat)
-        yhat = yhat / torch.std(yhat)
         return yhat
+        # return torch.tensor(yhat, requires_grad=True)
+
+    
 
 
-def complex_mse_loss(output, csdy):
+
+def complex_mse_loss(output, csdy, fo):
+#     f1, csdx = csd(output, output, fs=100, noverlap=None,  window='hamming', scaling='density', nfft=4096, nperseg=1000)
     output = output / torch.std(output)
-    f, csdx = csd(output, output, fs=100, nperseg=10000)
-    mse_real = torch.mean(torch.abs(torch.real(csdx) - torch.real(csdy))**2)
-    mse_imaginary = torch.mean(torch.abs(torch.imag(csdx) - torch.imag(csdy))**2)
-    loss = mse_real + mse_imaginary
+    f, csdx = csd(output, output, fs=100, nperseg=20000)
+
+    mask_f = torch.isin(f, fo)
+    csdx_ds = csdx[mask_f]
+    
+    # Define the frequency range
+    min_freq = 0
+    max_freq = 0.1
+
+    # Get the indices of the frequencies within the desired range
+    freq_indices = (fo >= min_freq) & (fo <= max_freq)
+
+    # Extract the corresponding CSDs
+    csdx_ds = csdx_ds[freq_indices]
+    csdy = csdy[freq_indices]
+    
+    mse_real = torch.mean(torch.abs(torch.real(csdx_ds) - torch.real(csdy))**2)
+#     mse_imaginary = torch.mean(torch.abs(torch.imag(csdx) - torch.imag(csdy))**2)
+    loss = mse_real
+
     return loss
 
-def train(observed_csd, name, f):
+
+def train(observed_csd, f, name):
     model = TimeDomainModel().to(device)
     lr = 0.01
-    n_epochs = 50
-    optimizer = optim.Adam(model.parameters(), lr=lr)
+    n_epochs = 150
+    optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=1e-4)
+    scheduler = ExponentialLR(optimizer, gamma=0.9)
 
     model.train()
     losses = []
@@ -66,9 +97,11 @@ def train(observed_csd, name, f):
         
         
     _, final_y = getEulerBOLD(sigma=model.sigma, mu=model.mu, lamb=model.lamb, beta=model.beta, phi=model.phi, psi=model.psi, chi=model.chi, noise=True, length=1000)
+    final_y = torch.stack(final_y)
     final_y = final_y / torch.std(final_y)
-    f, csdx = csd(final_y, final_y, fs=100, nperseg=10000)
-    np.savetxt(f"final_spectrum_{name}.txt", csdx.detach().numpy(), delimiter=',')
+    f, csdx = csd(final_y, final_y, fs=100, nperseg=20000)
+    np.savetxt(f"final_spectrum_take_2_{name}.txt", csdx.detach().numpy(), delimiter=',')
+        
 
     # Save losses array as JSON
     with open(f'losses-{name}.json', 'w') as f:
@@ -120,11 +153,11 @@ if __name__ == "__main__":
     name = f"sub-{subj}-{exp}-ROI{roi}"
     fname = f"{name}.txt"
     print(fname)
-    observed_bold = np.loadtxt('/rds/general/user/ak1920/home/fyp/fyp/time_series/'+fname , delimiter=',')
+    observed_bold = np.loadtxt('/rds/general/user/ak1920/home/fyp/fyp/time_series_take_2/'+fname , delimiter=',')
     observed_bold = torch.from_numpy(observed_bold).to(device)
-    f2, observed_csd = csd(observed_bold, observed_bold, fs=0.5, nperseg=64)
-    observed_csd = observed_csd / torch.sum(observed_csd)
+    observed_bold = observed_bold / torch.std(observed_bold)
+    f2, observed_csd = csd(observed_bold, observed_bold, fs=0.5, nperseg=100)
     start_time = time.perf_counter()
-    train(observed_csd, name, f2)
+    train(observed_csd, f2, name)
     end_time = time.perf_counter()
     print("Benchmarked!: ", end_time - start_time)

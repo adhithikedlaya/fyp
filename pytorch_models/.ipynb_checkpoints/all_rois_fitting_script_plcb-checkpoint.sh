@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -J 0-100
-#PBS -l select=1:ncpus=32:mem=64gb
-#PBS -l walltime=48:00:00
+#PBS -l select=1:ncpus=2:mem=64gb
+#PBS -l walltime=6:00:00
 #PBS -N p-dcm_fitting_all_rois_plcb
 #PBS -o /rds/general/user/ak1920/home/fyp/fyp/pytorch_models/logs
 #PBS -e /rds/general/user/ak1920/home/fyp/fyp/pytorch_models/logs

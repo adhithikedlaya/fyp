@@ -87,7 +87,7 @@ def train(observed_csd, f, name):
     _, final_y = getEulerBOLD(sigma=model.sigma, mu=model.mu, lamb=model.lamb, beta=model.beta, phi=model.phi, psi=model.psi, chi=model.chi, noise=True, length=1000)
     final_y = torch.stack(final_y)
     final_y = final_y / torch.std(final_y)
-    f, csdx = csd(final_y, final_y, fs=100, nperseg=10000)
+    f, csdx = csd(final_y, final_y, fs=100, nperseg=20000)
     np.savetxt(f"final_spectrum_{name}.txt", csdx.detach().numpy(), delimiter=',')
         
 
@@ -141,7 +141,7 @@ if __name__ == "__main__":
     name = f"sub-{subj}-{exp}-ROI{roi}"
     fname = f"{name}.txt"
     print(fname)
-    observed_bold = np.loadtxt('/rds/general/user/ak1920/home/fyp/fyp/time_series/'+fname , delimiter=',')
+    observed_bold = np.loadtxt('/rds/general/user/ak1920/home/fyp/fyp/time_series_take_2/'+fname , delimiter=',')
     observed_bold = torch.from_numpy(observed_bold).to(device)
     observed_bold = observed_bold / torch.std(observed_bold)
     f2, observed_csd = csd(observed_bold, observed_bold, fs=0.5, nperseg=100)

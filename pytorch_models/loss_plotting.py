@@ -23,16 +23,19 @@ def plot_heatmap(vars1, vars2):
     var1, vals1 = vars1
     var2, vals2 = vars2
 
-    x_train_tensor, observed_bold  = getEulerBOLD(sigma=torch.tensor(0.5, requires_grad=True), mu=torch.tensor(1.0, requires_grad=True), lamb=torch.tensor(0.3, requires_grad=True), alpha=1.0, beta=torch.tensor(1.0, requires_grad=True), noise=True, length=1000)
+    x_train_tensor, observed_bold  = getEulerBOLD(phi=torch.tensor(1.9), noise=True, length=1000)
 
     _, csdy = csd(observed_bold, observed_bold, fs=100, nperseg=20000)
 
     variables_dict = {
         'beta': 1.0,
-        'mu': 1.0,
+        'mu': 0.4,
         'sigma': 0.5,
-        'lamb': 0.3    }
-    num_sims = 10
+        'lamb': 0.2, 
+        'phi': 1.9,
+        'psi': 0.6, 
+        'chi': 0.6}
+    num_sims = 1
 
     all_losses = np.zeros((len(vals1), len(vals2)))
     for i in range(num_sims):
@@ -48,6 +51,9 @@ def plot_heatmap(vars1, vars2):
                             lamb=torch.tensor(variables_dict['lamb']),
                             alpha=1.0,
                             beta=torch.tensor(variables_dict['beta']),
+                            phi=torch.tensor(variables_dict['phi']),
+                            psi=torch.tensor(variables_dict['psi']),
+                            chi=torch.tensor(variables_dict['chi']),
                             noise=True,
                             length=1000
                         )
@@ -73,6 +79,8 @@ betas = np.arange(0.5, 1.5, 0.1)
 mus = np.arange(0.7, 1.3, 0.1)
 lambdas = np.arange(0.2, 0.6, 0.1)
 sigmas = np.arange(0.2, 0.9, 0.1)
+phis = np.arange(1.6, 2.4, 0.1)
+psis = np.arange(0.3, 1.0, 0.1)
 #plot_heatmap(('lamb', lambdas), ('sigma', sigmas))
 # plot_heatmap(('lamb', lambdas), ('mu', mus))
-plot_heatmap(('mu', mus), ('sigma', sigmas))
+plot_heatmap(('phi', phis), ('psi', psis))

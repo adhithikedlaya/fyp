@@ -1,0 +1,1625 @@
+/rds/general/user/ak1920/home/fyp/fyp/pytorch_models
+sub-004-LSD-ROI50.txt
+Input data is complex, switching to return_onesided=False
+Epoch:  0
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(25.73318672, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.89999998, requires_grad=True) Parameter containing:
+tensor(0.80000001, requires_grad=True) Parameter containing:
+tensor(0.30000001, requires_grad=True) Parameter containing:
+tensor(0.20000000, requires_grad=True) Parameter containing:
+tensor(2., requires_grad=True) Parameter containing:
+tensor(0.50000000, requires_grad=True) Parameter containing:
+tensor(0.30000001, requires_grad=True)
+Epoch:  1
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(28.72968102, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.88999999, requires_grad=True) Parameter containing:
+tensor(0.81000000, requires_grad=True) Parameter containing:
+tensor(0.29000002, requires_grad=True) Parameter containing:
+tensor(0.21000001, requires_grad=True) Parameter containing:
+tensor(2.00999999, requires_grad=True) Parameter containing:
+tensor(0.50999999, requires_grad=True) Parameter containing:
+tensor(0.31000000, requires_grad=True)
+Epoch:  2
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(25.75945091, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.88099092, requires_grad=True) Parameter containing:
+tensor(0.81871855, requires_grad=True) Parameter containing:
+tensor(0.28104758, requires_grad=True) Parameter containing:
+tensor(0.20587765, requires_grad=True) Parameter containing:
+tensor(2.01872230, requires_grad=True) Parameter containing:
+tensor(0.51874274, requires_grad=True) Parameter containing:
+tensor(0.31892964, requires_grad=True)
+Epoch:  3
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(28.91600609, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.87289578, requires_grad=True) Parameter containing:
+tensor(0.82616299, requires_grad=True) Parameter containing:
+tensor(0.27306113, requires_grad=True) Parameter containing:
+tensor(0.20683163, requires_grad=True) Parameter containing:
+tensor(2.02668715, requires_grad=True) Parameter containing:
+tensor(0.52586985, requires_grad=True) Parameter containing:
+tensor(0.32657337, requires_grad=True)
+Epoch:  4
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(27.48203850, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.86557722, requires_grad=True) Parameter containing:
+tensor(0.83301497, requires_grad=True) Parameter containing:
+tensor(0.26583770, requires_grad=True) Parameter containing:
+tensor(0.20463932, requires_grad=True) Parameter containing:
+tensor(2.03353143, requires_grad=True) Parameter containing:
+tensor(0.53259671, requires_grad=True) Parameter containing:
+tensor(0.33362076, requires_grad=True)
+Epoch:  5
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(27.19535828, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.85896897, requires_grad=True) Parameter containing:
+tensor(0.83922684, requires_grad=True) Parameter containing:
+tensor(0.25930268, requires_grad=True) Parameter containing:
+tensor(0.20366891, requires_grad=True) Parameter containing:
+tensor(2.03983474, requires_grad=True) Parameter containing:
+tensor(0.53857780, requires_grad=True) Parameter containing:
+tensor(0.33990389, requires_grad=True)
+Epoch:  6
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(25.61345482, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.85301757, requires_grad=True) Parameter containing:
+tensor(0.84466648, requires_grad=True) Parameter containing:
+tensor(0.25342056, requires_grad=True) Parameter containing:
+tensor(0.20423417, requires_grad=True) Parameter containing:
+tensor(2.04561424, requires_grad=True) Parameter containing:
+tensor(0.54360187, requires_grad=True) Parameter containing:
+tensor(0.34536698, requires_grad=True)
+Epoch:  7
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.13268089, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.84762108, requires_grad=True) Parameter containing:
+tensor(0.84952521, requires_grad=True) Parameter containing:
+tensor(0.24807808, requires_grad=True) Parameter containing:
+tensor(0.20645487, requires_grad=True) Parameter containing:
+tensor(2.05086136, requires_grad=True) Parameter containing:
+tensor(0.54780799, requires_grad=True) Parameter containing:
+tensor(0.35019165, requires_grad=True)
+Epoch:  8
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(25.26602364, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.84278452, requires_grad=True) Parameter containing:
+tensor(0.85354501, requires_grad=True) Parameter containing:
+tensor(0.24336281, requires_grad=True) Parameter containing:
+tensor(0.20932211, requires_grad=True) Parameter containing:
+tensor(2.05565214, requires_grad=True) Parameter containing:
+tensor(0.55090874, requires_grad=True) Parameter containing:
+tensor(0.35419396, requires_grad=True)
+Epoch:  9
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.25831413, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.83843148, requires_grad=True) Parameter containing:
+tensor(0.85715586, requires_grad=True) Parameter containing:
+tensor(0.23911634, requires_grad=True) Parameter containing:
+tensor(0.21218377, requires_grad=True) Parameter containing:
+tensor(2.05998135, requires_grad=True) Parameter containing:
+tensor(0.55354005, requires_grad=True) Parameter containing:
+tensor(0.35770348, requires_grad=True)
+Epoch:  10
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.85251236, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.83448571, requires_grad=True) Parameter containing:
+tensor(0.86045218, requires_grad=True) Parameter containing:
+tensor(0.23525758, requires_grad=True) Parameter containing:
+tensor(0.21493125, requires_grad=True) Parameter containing:
+tensor(2.06390905, requires_grad=True) Parameter containing:
+tensor(0.55580974, requires_grad=True) Parameter containing:
+tensor(0.36082706, requires_grad=True)
+Epoch:  11
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.57264137, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.83090836, requires_grad=True) Parameter containing:
+tensor(0.86332256, requires_grad=True) Parameter containing:
+tensor(0.23176636, requires_grad=True) Parameter containing:
+tensor(0.21769708, requires_grad=True) Parameter containing:
+tensor(2.06749368, requires_grad=True) Parameter containing:
+tensor(0.55750126, requires_grad=True) Parameter containing:
+tensor(0.36351243, requires_grad=True)
+Epoch:  12
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.45818520, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.82769096, requires_grad=True) Parameter containing:
+tensor(0.86585176, requires_grad=True) Parameter containing:
+tensor(0.22862773, requires_grad=True) Parameter containing:
+tensor(0.22033016, requires_grad=True) Parameter containing:
+tensor(2.07073808, requires_grad=True) Parameter containing:
+tensor(0.55881399, requires_grad=True) Parameter containing:
+tensor(0.36583266, requires_grad=True)
+Epoch:  13
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.77041054, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.82480460, requires_grad=True) Parameter containing:
+tensor(0.86821336, requires_grad=True) Parameter containing:
+tensor(0.22578287, requires_grad=True) Parameter containing:
+tensor(0.22259256, requires_grad=True) Parameter containing:
+tensor(2.07359004, requires_grad=True) Parameter containing:
+tensor(0.56007820, requires_grad=True) Parameter containing:
+tensor(0.36793876, requires_grad=True)
+Epoch:  14
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.33227921, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.82220578, requires_grad=True) Parameter containing:
+tensor(0.87026119, requires_grad=True) Parameter containing:
+tensor(0.22323728, requires_grad=True) Parameter containing:
+tensor(0.22476427, requires_grad=True) Parameter containing:
+tensor(2.07618642, requires_grad=True) Parameter containing:
+tensor(0.56099093, requires_grad=True) Parameter containing:
+tensor(0.36973307, requires_grad=True)
+Epoch:  15
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(25.07306480, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.81985515, requires_grad=True) Parameter containing:
+tensor(0.87201202, requires_grad=True) Parameter containing:
+tensor(0.22094117, requires_grad=True) Parameter containing:
+tensor(0.22683841, requires_grad=True) Parameter containing:
+tensor(2.07855964, requires_grad=True) Parameter containing:
+tensor(0.56155789, requires_grad=True) Parameter containing:
+tensor(0.37124905, requires_grad=True)
+Epoch:  16
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.20819473, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.81770545, requires_grad=True) Parameter containing:
+tensor(0.87373066, requires_grad=True) Parameter containing:
+tensor(0.21882609, requires_grad=True) Parameter containing:
+tensor(0.22863823, requires_grad=True) Parameter containing:
+tensor(2.08069181, requires_grad=True) Parameter containing:
+tensor(0.56223047, requires_grad=True) Parameter containing:
+tensor(0.37269831, requires_grad=True)
+Epoch:  17
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.21384621, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.81575733, requires_grad=True) Parameter containing:
+tensor(0.87533468, requires_grad=True) Parameter containing:
+tensor(0.21690409, requires_grad=True) Parameter containing:
+tensor(0.23023795, requires_grad=True) Parameter containing:
+tensor(2.08261132, requires_grad=True) Parameter containing:
+tensor(0.56286180, requires_grad=True) Parameter containing:
+tensor(0.37401822, requires_grad=True)
+Epoch:  18
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.92629051, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.81400907, requires_grad=True) Parameter containing:
+tensor(0.87681454, requires_grad=True) Parameter containing:
+tensor(0.21517788, requires_grad=True) Parameter containing:
+tensor(0.23167944, requires_grad=True) Parameter containing:
+tensor(2.08431506, requires_grad=True) Parameter containing:
+tensor(0.56346327, requires_grad=True) Parameter containing:
+tensor(0.37521034, requires_grad=True)
+Epoch:  19
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(25.41074944, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.81244349, requires_grad=True) Parameter containing:
+tensor(0.87801874, requires_grad=True) Parameter containing:
+tensor(0.21365255, requires_grad=True) Parameter containing:
+tensor(0.23306645, requires_grad=True) Parameter containing:
+tensor(2.08587909, requires_grad=True) Parameter containing:
+tensor(0.56376034, requires_grad=True) Parameter containing:
+tensor(0.37617376, requires_grad=True)
+Epoch:  20
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.28669739, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.81101036, requires_grad=True) Parameter containing:
+tensor(0.87921149, requires_grad=True) Parameter containing:
+tensor(0.21224016, requires_grad=True) Parameter containing:
+tensor(0.23415290, requires_grad=True) Parameter containing:
+tensor(2.08725691, requires_grad=True) Parameter containing:
+tensor(0.56422818, requires_grad=True) Parameter containing:
+tensor(0.37713188, requires_grad=True)
+Epoch:  21
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.12896919, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80971646, requires_grad=True) Parameter containing:
+tensor(0.88031811, requires_grad=True) Parameter containing:
+tensor(0.21096145, requires_grad=True) Parameter containing:
+tensor(0.23511475, requires_grad=True) Parameter containing:
+tensor(2.08848667, requires_grad=True) Parameter containing:
+tensor(0.56468403, requires_grad=True) Parameter containing:
+tensor(0.37800831, requires_grad=True)
+Epoch:  22
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.09480476, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80854464, requires_grad=True) Parameter containing:
+tensor(0.88136590, requires_grad=True) Parameter containing:
+tensor(0.20979637, requires_grad=True) Parameter containing:
+tensor(0.23587118, requires_grad=True) Parameter containing:
+tensor(2.08956838, requires_grad=True) Parameter containing:
+tensor(0.56518728, requires_grad=True) Parameter containing:
+tensor(0.37883660, requires_grad=True)
+Epoch:  23
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.06773567, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80748218, requires_grad=True) Parameter containing:
+tensor(0.88232678, requires_grad=True) Parameter containing:
+tensor(0.20873828, requires_grad=True) Parameter containing:
+tensor(0.23654634, requires_grad=True) Parameter containing:
+tensor(2.09054875, requires_grad=True) Parameter containing:
+tensor(0.56565046, requires_grad=True) Parameter containing:
+tensor(0.37958932, requires_grad=True)
+Epoch:  24
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.48842239, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80651820, requires_grad=True) Parameter containing:
+tensor(0.88321459, requires_grad=True) Parameter containing:
+tensor(0.20777428, requires_grad=True) Parameter containing:
+tensor(0.23713988, requires_grad=True) Parameter containing:
+tensor(2.09143138, requires_grad=True) Parameter containing:
+tensor(0.56609690, requires_grad=True) Parameter containing:
+tensor(0.38028225, requires_grad=True)
+Epoch:  25
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.35152245, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80564868, requires_grad=True) Parameter containing:
+tensor(0.88403362, requires_grad=True) Parameter containing:
+tensor(0.20690303, requires_grad=True) Parameter containing:
+tensor(0.23763186, requires_grad=True) Parameter containing:
+tensor(2.09221530, requires_grad=True) Parameter containing:
+tensor(0.56653637, requires_grad=True) Parameter containing:
+tensor(0.38092074, requires_grad=True)
+Epoch:  26
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.44520378, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80486506, requires_grad=True) Parameter containing:
+tensor(0.88479275, requires_grad=True) Parameter containing:
+tensor(0.20611340, requires_grad=True) Parameter containing:
+tensor(0.23800673, requires_grad=True) Parameter containing:
+tensor(2.09290266, requires_grad=True) Parameter containing:
+tensor(0.56698197, requires_grad=True) Parameter containing:
+tensor(0.38151544, requires_grad=True)
+Epoch:  27
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.22556305, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80415595, requires_grad=True) Parameter containing:
+tensor(0.88548613, requires_grad=True) Parameter containing:
+tensor(0.20539682, requires_grad=True) Parameter containing:
+tensor(0.23833698, requires_grad=True) Parameter containing:
+tensor(2.09352136, requires_grad=True) Parameter containing:
+tensor(0.56739950, requires_grad=True) Parameter containing:
+tensor(0.38205865, requires_grad=True)
+Epoch:  28
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.88956642, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80352497, requires_grad=True) Parameter containing:
+tensor(0.88610673, requires_grad=True) Parameter containing:
+tensor(0.20475794, requires_grad=True) Parameter containing:
+tensor(0.23860478, requires_grad=True) Parameter containing:
+tensor(2.09406853, requires_grad=True) Parameter containing:
+tensor(0.56777745, requires_grad=True) Parameter containing:
+tensor(0.38254333, requires_grad=True)
+Epoch:  29
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.24899101, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80295783, requires_grad=True) Parameter containing:
+tensor(0.88665342, requires_grad=True) Parameter containing:
+tensor(0.20418671, requires_grad=True) Parameter containing:
+tensor(0.23887624, requires_grad=True) Parameter containing:
+tensor(2.09457040, requires_grad=True) Parameter containing:
+tensor(0.56808889, requires_grad=True) Parameter containing:
+tensor(0.38296625, requires_grad=True)
+Epoch:  30
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.16134262, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80244517, requires_grad=True) Parameter containing:
+tensor(0.88715857, requires_grad=True) Parameter containing:
+tensor(0.20366804, requires_grad=True) Parameter containing:
+tensor(0.23909351, requires_grad=True) Parameter containing:
+tensor(2.09501362, requires_grad=True) Parameter containing:
+tensor(0.56839699, requires_grad=True) Parameter containing:
+tensor(0.38335913, requires_grad=True)
+Epoch:  31
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(25.40704727, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80198550, requires_grad=True) Parameter containing:
+tensor(0.88761294, requires_grad=True) Parameter containing:
+tensor(0.20320266, requires_grad=True) Parameter containing:
+tensor(0.23928295, requires_grad=True) Parameter containing:
+tensor(2.09541035, requires_grad=True) Parameter containing:
+tensor(0.56867570, requires_grad=True) Parameter containing:
+tensor(0.38371167, requires_grad=True)
+Epoch:  32
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.10916519, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80157191, requires_grad=True) Parameter containing:
+tensor(0.88802636, requires_grad=True) Parameter containing:
+tensor(0.20278147, requires_grad=True) Parameter containing:
+tensor(0.23943217, requires_grad=True) Parameter containing:
+tensor(2.09576249, requires_grad=True) Parameter containing:
+tensor(0.56893766, requires_grad=True) Parameter containing:
+tensor(0.38403329, requires_grad=True)
+Epoch:  33
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.12244606, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80120218, requires_grad=True) Parameter containing:
+tensor(0.88838148, requires_grad=True) Parameter containing:
+tensor(0.20240691, requires_grad=True) Parameter containing:
+tensor(0.23960079, requires_grad=True) Parameter containing:
+tensor(2.09608793, requires_grad=True) Parameter containing:
+tensor(0.56913978, requires_grad=True) Parameter containing:
+tensor(0.38430730, requires_grad=True)
+Epoch:  34
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.54789162, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80087101, requires_grad=True) Parameter containing:
+tensor(0.88870138, requires_grad=True) Parameter containing:
+tensor(0.20207199, requires_grad=True) Parameter containing:
+tensor(0.23975059, requires_grad=True) Parameter containing:
+tensor(2.09637809, requires_grad=True) Parameter containing:
+tensor(0.56932384, requires_grad=True) Parameter containing:
+tensor(0.38455355, requires_grad=True)
+Epoch:  35
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.29775620, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80057240, requires_grad=True) Parameter containing:
+tensor(0.88899028, requires_grad=True) Parameter containing:
+tensor(0.20177145, requires_grad=True) Parameter containing:
+tensor(0.23989309, requires_grad=True) Parameter containing:
+tensor(2.09664083, requires_grad=True) Parameter containing:
+tensor(0.56948942, requires_grad=True) Parameter containing:
+tensor(0.38477501, requires_grad=True)
+Epoch:  36
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.46671104, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80030322, requires_grad=True) Parameter containing:
+tensor(0.88925022, requires_grad=True) Parameter containing:
+tensor(0.20150052, requires_grad=True) Parameter containing:
+tensor(0.24002104, requires_grad=True) Parameter containing:
+tensor(2.09687877, requires_grad=True) Parameter containing:
+tensor(0.56963682, requires_grad=True) Parameter containing:
+tensor(0.38497376, requires_grad=True)
+Epoch:  37
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.41648674, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.80006260, requires_grad=True) Parameter containing:
+tensor(0.88947725, requires_grad=True) Parameter containing:
+tensor(0.20125969, requires_grad=True) Parameter containing:
+tensor(0.24015179, requires_grad=True) Parameter containing:
+tensor(2.09709620, requires_grad=True) Parameter containing:
+tensor(0.56975585, requires_grad=True) Parameter containing:
+tensor(0.38514596, requires_grad=True)
+Epoch:  38
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(18.78901672, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79984194, requires_grad=True) Parameter containing:
+tensor(0.88968617, requires_grad=True) Parameter containing:
+tensor(0.20103905, requires_grad=True) Parameter containing:
+tensor(0.24027447, requires_grad=True) Parameter containing:
+tensor(2.09729648, requires_grad=True) Parameter containing:
+tensor(0.56986541, requires_grad=True) Parameter containing:
+tensor(0.38530427, requires_grad=True)
+Epoch:  39
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(19.59696388, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79964697, requires_grad=True) Parameter containing:
+tensor(0.88986021, requires_grad=True) Parameter containing:
+tensor(0.20084624, requires_grad=True) Parameter containing:
+tensor(0.24041137, requires_grad=True) Parameter containing:
+tensor(2.09748006, requires_grad=True) Parameter containing:
+tensor(0.56993914, requires_grad=True) Parameter containing:
+tensor(0.38543451, requires_grad=True)
+Epoch:  40
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.93709183, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79947346, requires_grad=True) Parameter containing:
+tensor(0.89000916, requires_grad=True) Parameter containing:
+tensor(0.20067713, requires_grad=True) Parameter containing:
+tensor(0.24055091, requires_grad=True) Parameter containing:
+tensor(2.09764791, requires_grad=True) Parameter containing:
+tensor(0.56999028, requires_grad=True) Parameter containing:
+tensor(0.38554418, requires_grad=True)
+Epoch:  41
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.80296326, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79931766, requires_grad=True) Parameter containing:
+tensor(0.89013976, requires_grad=True) Parameter containing:
+tensor(0.20052612, requires_grad=True) Parameter containing:
+tensor(0.24068356, requires_grad=True) Parameter containing:
+tensor(2.09780121, requires_grad=True) Parameter containing:
+tensor(0.57002765, requires_grad=True) Parameter containing:
+tensor(0.38563919, requires_grad=True)
+Epoch:  42
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.69767761, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79917496, requires_grad=True) Parameter containing:
+tensor(0.89026117, requires_grad=True) Parameter containing:
+tensor(0.20038746, requires_grad=True) Parameter containing:
+tensor(0.24080147, requires_grad=True) Parameter containing:
+tensor(2.09794116, requires_grad=True) Parameter containing:
+tensor(0.57006401, requires_grad=True) Parameter containing:
+tensor(0.38572747, requires_grad=True)
+Epoch:  43
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(20.15422058, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79904556, requires_grad=True) Parameter containing:
+tensor(0.89037323, requires_grad=True) Parameter containing:
+tensor(0.20026113, requires_grad=True) Parameter containing:
+tensor(0.24090481, requires_grad=True) Parameter containing:
+tensor(2.09806681, requires_grad=True) Parameter containing:
+tensor(0.57010049, requires_grad=True) Parameter containing:
+tensor(0.38580927, requires_grad=True)
+Epoch:  44
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.45778465, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79893029, requires_grad=True) Parameter containing:
+tensor(0.89046937, requires_grad=True) Parameter containing:
+tensor(0.20014980, requires_grad=True) Parameter containing:
+tensor(0.24100401, requires_grad=True) Parameter containing:
+tensor(2.09818125, requires_grad=True) Parameter containing:
+tensor(0.57012403, requires_grad=True) Parameter containing:
+tensor(0.38587847, requires_grad=True)
+Epoch:  45
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.37627029, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79882658, requires_grad=True) Parameter containing:
+tensor(0.89056003, requires_grad=True) Parameter containing:
+tensor(0.20004845, requires_grad=True) Parameter containing:
+tensor(0.24108306, requires_grad=True) Parameter containing:
+tensor(2.09828115, requires_grad=True) Parameter containing:
+tensor(0.57015431, requires_grad=True) Parameter containing:
+tensor(0.38594472, requires_grad=True)
+Epoch:  46
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.33244896, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79873329, requires_grad=True) Parameter containing:
+tensor(0.89064544, requires_grad=True) Parameter containing:
+tensor(0.19995652, requires_grad=True) Parameter containing:
+tensor(0.24114494, requires_grad=True) Parameter containing:
+tensor(2.09836793, requires_grad=True) Parameter containing:
+tensor(0.57019043, requires_grad=True) Parameter containing:
+tensor(0.38600814, requires_grad=True)
+Epoch:  47
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.30778313, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79864883, requires_grad=True) Parameter containing:
+tensor(0.89072561, requires_grad=True) Parameter containing:
+tensor(0.19987313, requires_grad=True) Parameter containing:
+tensor(0.24119602, requires_grad=True) Parameter containing:
+tensor(2.09844446, requires_grad=True) Parameter containing:
+tensor(0.57022953, requires_grad=True) Parameter containing:
+tensor(0.38606828, requires_grad=True)
+Epoch:  48
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.09177208, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79857403, requires_grad=True) Parameter containing:
+tensor(0.89079511, requires_grad=True) Parameter containing:
+tensor(0.19979967, requires_grad=True) Parameter containing:
+tensor(0.24124455, requires_grad=True) Parameter containing:
+tensor(2.09851360, requires_grad=True) Parameter containing:
+tensor(0.57026070, requires_grad=True) Parameter containing:
+tensor(0.38612011, requires_grad=True)
+Epoch:  49
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(20.37898254, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79850656, requires_grad=True) Parameter containing:
+tensor(0.89085829, requires_grad=True) Parameter containing:
+tensor(0.19973321, requires_grad=True) Parameter containing:
+tensor(0.24128708, requires_grad=True) Parameter containing:
+tensor(2.09857559, requires_grad=True) Parameter containing:
+tensor(0.57028985, requires_grad=True) Parameter containing:
+tensor(0.38616738, requires_grad=True)
+Epoch:  50
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.21776772, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79844612, requires_grad=True) Parameter containing:
+tensor(0.89091426, requires_grad=True) Parameter containing:
+tensor(0.19967374, requires_grad=True) Parameter containing:
+tensor(0.24132735, requires_grad=True) Parameter containing:
+tensor(2.09863162, requires_grad=True) Parameter containing:
+tensor(0.57031447, requires_grad=True) Parameter containing:
+tensor(0.38620916, requires_grad=True)
+Epoch:  51
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.74603844, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79839176, requires_grad=True) Parameter containing:
+tensor(0.89096367, requires_grad=True) Parameter containing:
+tensor(0.19962049, requires_grad=True) Parameter containing:
+tensor(0.24136439, requires_grad=True) Parameter containing:
+tensor(2.09868288, requires_grad=True) Parameter containing:
+tensor(0.57033426, requires_grad=True) Parameter containing:
+tensor(0.38624582, requires_grad=True)
+Epoch:  52
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.05322838, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79834253, requires_grad=True) Parameter containing:
+tensor(0.89100838, requires_grad=True) Parameter containing:
+tensor(0.19957228, requires_grad=True) Parameter containing:
+tensor(0.24139768, requires_grad=True) Parameter containing:
+tensor(2.09872961, requires_grad=True) Parameter containing:
+tensor(0.57035184, requires_grad=True) Parameter containing:
+tensor(0.38627899, requires_grad=True)
+Epoch:  53
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(20.86977768, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79829794, requires_grad=True) Parameter containing:
+tensor(0.89104933, requires_grad=True) Parameter containing:
+tensor(0.19952871, requires_grad=True) Parameter containing:
+tensor(0.24142715, requires_grad=True) Parameter containing:
+tensor(2.09877157, requires_grad=True) Parameter containing:
+tensor(0.57036883, requires_grad=True) Parameter containing:
+tensor(0.38630947, requires_grad=True)
+Epoch:  54
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.93883896, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79825783, requires_grad=True) Parameter containing:
+tensor(0.89108557, requires_grad=True) Parameter containing:
+tensor(0.19948952, requires_grad=True) Parameter containing:
+tensor(0.24145491, requires_grad=True) Parameter containing:
+tensor(2.09880972, requires_grad=True) Parameter containing:
+tensor(0.57038254, requires_grad=True) Parameter containing:
+tensor(0.38633636, requires_grad=True)
+Epoch:  55
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.50649071, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79822135, requires_grad=True) Parameter containing:
+tensor(0.89111954, requires_grad=True) Parameter containing:
+tensor(0.19945362, requires_grad=True) Parameter containing:
+tensor(0.24147734, requires_grad=True) Parameter containing:
+tensor(2.09884381, requires_grad=True) Parameter containing:
+tensor(0.57039756, requires_grad=True) Parameter containing:
+tensor(0.38636190, requires_grad=True)
+Epoch:  56
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.47222519, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79818875, requires_grad=True) Parameter containing:
+tensor(0.89115024, requires_grad=True) Parameter containing:
+tensor(0.19942139, requires_grad=True) Parameter containing:
+tensor(0.24149658, requires_grad=True) Parameter containing:
+tensor(2.09887409, requires_grad=True) Parameter containing:
+tensor(0.57041168, requires_grad=True) Parameter containing:
+tensor(0.38638511, requires_grad=True)
+Epoch:  57
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.35272026, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79815948, requires_grad=True) Parameter containing:
+tensor(0.89117849, requires_grad=True) Parameter containing:
+tensor(0.19939230, requires_grad=True) Parameter containing:
+tensor(0.24151154, requires_grad=True) Parameter containing:
+tensor(2.09890056, requires_grad=True) Parameter containing:
+tensor(0.57042617, requires_grad=True) Parameter containing:
+tensor(0.38640672, requires_grad=True)
+Epoch:  58
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.26606560, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79813313, requires_grad=True) Parameter containing:
+tensor(0.89120436, requires_grad=True) Parameter containing:
+tensor(0.19936594, requires_grad=True) Parameter containing:
+tensor(0.24152379, requires_grad=True) Parameter containing:
+tensor(2.09892392, requires_grad=True) Parameter containing:
+tensor(0.57044023, requires_grad=True) Parameter containing:
+tensor(0.38642666, requires_grad=True)
+Epoch:  59
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.69073677, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79810977, requires_grad=True) Parameter containing:
+tensor(0.89122736, requires_grad=True) Parameter containing:
+tensor(0.19934234, requires_grad=True) Parameter containing:
+tensor(0.24153484, requires_grad=True) Parameter containing:
+tensor(2.09894466, requires_grad=True) Parameter containing:
+tensor(0.57045299, requires_grad=True) Parameter containing:
+tensor(0.38644451, requires_grad=True)
+Epoch:  60
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.18232727, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79808861, requires_grad=True) Parameter containing:
+tensor(0.89124894, requires_grad=True) Parameter containing:
+tensor(0.19932081, requires_grad=True) Parameter containing:
+tensor(0.24154291, requires_grad=True) Parameter containing:
+tensor(2.09896278, requires_grad=True) Parameter containing:
+tensor(0.57046640, requires_grad=True) Parameter containing:
+tensor(0.38646150, requires_grad=True)
+Epoch:  61
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.17165375, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79806954, requires_grad=True) Parameter containing:
+tensor(0.89126879, requires_grad=True) Parameter containing:
+tensor(0.19930132, requires_grad=True) Parameter containing:
+tensor(0.24154893, requires_grad=True) Parameter containing:
+tensor(2.09897876, requires_grad=True) Parameter containing:
+tensor(0.57047957, requires_grad=True) Parameter containing:
+tensor(0.38647729, requires_grad=True)
+Epoch:  62
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.63586426, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79805207, requires_grad=True) Parameter containing:
+tensor(0.89128762, requires_grad=True) Parameter containing:
+tensor(0.19928339, requires_grad=True) Parameter containing:
+tensor(0.24155201, requires_grad=True) Parameter containing:
+tensor(2.09899259, requires_grad=True) Parameter containing:
+tensor(0.57049340, requires_grad=True) Parameter containing:
+tensor(0.38649252, requires_grad=True)
+Epoch:  63
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.29032326, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79803646, requires_grad=True) Parameter containing:
+tensor(0.89130402, requires_grad=True) Parameter containing:
+tensor(0.19926749, requires_grad=True) Parameter containing:
+tensor(0.24155600, requires_grad=True) Parameter containing:
+tensor(2.09900546, requires_grad=True) Parameter containing:
+tensor(0.57050467, requires_grad=True) Parameter containing:
+tensor(0.38650569, requires_grad=True)
+Epoch:  64
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.39761162, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79802251, requires_grad=True) Parameter containing:
+tensor(0.89131850, requires_grad=True) Parameter containing:
+tensor(0.19925337, requires_grad=True) Parameter containing:
+tensor(0.24155986, requires_grad=True) Parameter containing:
+tensor(2.09901714, requires_grad=True) Parameter containing:
+tensor(0.57051450, requires_grad=True) Parameter containing:
+tensor(0.38651735, requires_grad=True)
+Epoch:  65
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.10782623, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79800999, requires_grad=True) Parameter containing:
+tensor(0.89133132, requires_grad=True) Parameter containing:
+tensor(0.19924076, requires_grad=True) Parameter containing:
+tensor(0.24156402, requires_grad=True) Parameter containing:
+tensor(2.09902787, requires_grad=True) Parameter containing:
+tensor(0.57052284, requires_grad=True) Parameter containing:
+tensor(0.38652760, requires_grad=True)
+Epoch:  66
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(19.89454651, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79799879, requires_grad=True) Parameter containing:
+tensor(0.89134234, requires_grad=True) Parameter containing:
+tensor(0.19922955, requires_grad=True) Parameter containing:
+tensor(0.24156867, requires_grad=True) Parameter containing:
+tensor(2.09903789, requires_grad=True) Parameter containing:
+tensor(0.57052922, requires_grad=True) Parameter containing:
+tensor(0.38653633, requires_grad=True)
+Epoch:  67
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.95679665, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79798871, requires_grad=True) Parameter containing:
+tensor(0.89135164, requires_grad=True) Parameter containing:
+tensor(0.19921970, requires_grad=True) Parameter containing:
+tensor(0.24157426, requires_grad=True) Parameter containing:
+tensor(2.09904718, requires_grad=True) Parameter containing:
+tensor(0.57053357, requires_grad=True) Parameter containing:
+tensor(0.38654357, requires_grad=True)
+Epoch:  68
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.38495064, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79797965, requires_grad=True) Parameter containing:
+tensor(0.89136028, requires_grad=True) Parameter containing:
+tensor(0.19921075, requires_grad=True) Parameter containing:
+tensor(0.24157868, requires_grad=True) Parameter containing:
+tensor(2.09905529, requires_grad=True) Parameter containing:
+tensor(0.57053816, requires_grad=True) Parameter containing:
+tensor(0.38655040, requires_grad=True)
+Epoch:  69
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.87477493, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79797149, requires_grad=True) Parameter containing:
+tensor(0.89136809, requires_grad=True) Parameter containing:
+tensor(0.19920266, requires_grad=True) Parameter containing:
+tensor(0.24158262, requires_grad=True) Parameter containing:
+tensor(2.09906268, requires_grad=True) Parameter containing:
+tensor(0.57054240, requires_grad=True) Parameter containing:
+tensor(0.38655660, requires_grad=True)
+Epoch:  70
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.10884094, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79796416, requires_grad=True) Parameter containing:
+tensor(0.89137506, requires_grad=True) Parameter containing:
+tensor(0.19919537, requires_grad=True) Parameter containing:
+tensor(0.24158613, requires_grad=True) Parameter containing:
+tensor(2.09906936, requires_grad=True) Parameter containing:
+tensor(0.57054609, requires_grad=True) Parameter containing:
+tensor(0.38656214, requires_grad=True)
+Epoch:  71
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.17761612, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79795760, requires_grad=True) Parameter containing:
+tensor(0.89138132, requires_grad=True) Parameter containing:
+tensor(0.19918878, requires_grad=True) Parameter containing:
+tensor(0.24158938, requires_grad=True) Parameter containing:
+tensor(2.09907532, requires_grad=True) Parameter containing:
+tensor(0.57054943, requires_grad=True) Parameter containing:
+tensor(0.38656715, requires_grad=True)
+Epoch:  72
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.36211967, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79795176, requires_grad=True) Parameter containing:
+tensor(0.89138663, requires_grad=True) Parameter containing:
+tensor(0.19918299, requires_grad=True) Parameter containing:
+tensor(0.24159281, requires_grad=True) Parameter containing:
+tensor(2.09908080, requires_grad=True) Parameter containing:
+tensor(0.57055181, requires_grad=True) Parameter containing:
+tensor(0.38657135, requires_grad=True)
+Epoch:  73
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.73570061, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79794645, requires_grad=True) Parameter containing:
+tensor(0.89139169, requires_grad=True) Parameter containing:
+tensor(0.19917765, requires_grad=True) Parameter containing:
+tensor(0.24159539, requires_grad=True) Parameter containing:
+tensor(2.09908557, requires_grad=True) Parameter containing:
+tensor(0.57055455, requires_grad=True) Parameter containing:
+tensor(0.38657543, requires_grad=True)
+Epoch:  74
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.01708984, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79794168, requires_grad=True) Parameter containing:
+tensor(0.89139640, requires_grad=True) Parameter containing:
+tensor(0.19917282, requires_grad=True) Parameter containing:
+tensor(0.24159738, requires_grad=True) Parameter containing:
+tensor(2.09908986, requires_grad=True) Parameter containing:
+tensor(0.57055730, requires_grad=True) Parameter containing:
+tensor(0.38657925, requires_grad=True)
+Epoch:  75
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.96731758, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79793739, requires_grad=True) Parameter containing:
+tensor(0.89140064, requires_grad=True) Parameter containing:
+tensor(0.19916849, requires_grad=True) Parameter containing:
+tensor(0.24159908, requires_grad=True) Parameter containing:
+tensor(2.09909368, requires_grad=True) Parameter containing:
+tensor(0.57055986, requires_grad=True) Parameter containing:
+tensor(0.38658270, requires_grad=True)
+Epoch:  76
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.34185410, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79793352, requires_grad=True) Parameter containing:
+tensor(0.89140445, requires_grad=True) Parameter containing:
+tensor(0.19916461, requires_grad=True) Parameter containing:
+tensor(0.24160066, requires_grad=True) Parameter containing:
+tensor(2.09909701, requires_grad=True) Parameter containing:
+tensor(0.57056212, requires_grad=True) Parameter containing:
+tensor(0.38658580, requires_grad=True)
+Epoch:  77
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.22393799, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79793006, requires_grad=True) Parameter containing:
+tensor(0.89140785, requires_grad=True) Parameter containing:
+tensor(0.19916113, requires_grad=True) Parameter containing:
+tensor(0.24160220, requires_grad=True) Parameter containing:
+tensor(2.09910011, requires_grad=True) Parameter containing:
+tensor(0.57056409, requires_grad=True) Parameter containing:
+tensor(0.38658854, requires_grad=True)
+Epoch:  78
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.32306671, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79792696, requires_grad=True) Parameter containing:
+tensor(0.89141083, requires_grad=True) Parameter containing:
+tensor(0.19915801, requires_grad=True) Parameter containing:
+tensor(0.24160367, requires_grad=True) Parameter containing:
+tensor(2.09910297, requires_grad=True) Parameter containing:
+tensor(0.57056570, requires_grad=True) Parameter containing:
+tensor(0.38659096, requires_grad=True)
+Epoch:  79
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(20.34354591, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79792422, requires_grad=True) Parameter containing:
+tensor(0.89141345, requires_grad=True) Parameter containing:
+tensor(0.19915529, requires_grad=True) Parameter containing:
+tensor(0.24160501, requires_grad=True) Parameter containing:
+tensor(2.09910560, requires_grad=True) Parameter containing:
+tensor(0.57056713, requires_grad=True) Parameter containing:
+tensor(0.38659307, requires_grad=True)
+Epoch:  80
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.55667877, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79792178, requires_grad=True) Parameter containing:
+tensor(0.89141572, requires_grad=True) Parameter containing:
+tensor(0.19915289, requires_grad=True) Parameter containing:
+tensor(0.24160643, requires_grad=True) Parameter containing:
+tensor(2.09910798, requires_grad=True) Parameter containing:
+tensor(0.57056826, requires_grad=True) Parameter containing:
+tensor(0.38659489, requires_grad=True)
+Epoch:  81
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.91740036, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79791963, requires_grad=True) Parameter containing:
+tensor(0.89141768, requires_grad=True) Parameter containing:
+tensor(0.19915074, requires_grad=True) Parameter containing:
+tensor(0.24160779, requires_grad=True) Parameter containing:
+tensor(2.09911013, requires_grad=True) Parameter containing:
+tensor(0.57056922, requires_grad=True) Parameter containing:
+tensor(0.38659647, requires_grad=True)
+Epoch:  82
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.83678818, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79791760, requires_grad=True) Parameter containing:
+tensor(0.89141959, requires_grad=True) Parameter containing:
+tensor(0.19914874, requires_grad=True) Parameter containing:
+tensor(0.24160883, requires_grad=True) Parameter containing:
+tensor(2.09911203, requires_grad=True) Parameter containing:
+tensor(0.57057029, requires_grad=True) Parameter containing:
+tensor(0.38659802, requires_grad=True)
+Epoch:  83
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.86981583, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79791582, requires_grad=True) Parameter containing:
+tensor(0.89142132, requires_grad=True) Parameter containing:
+tensor(0.19914693, requires_grad=True) Parameter containing:
+tensor(0.24160962, requires_grad=True) Parameter containing:
+tensor(2.09911370, requires_grad=True) Parameter containing:
+tensor(0.57057136, requires_grad=True) Parameter containing:
+tensor(0.38659948, requires_grad=True)
+Epoch:  84
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.06791687, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79791421, requires_grad=True) Parameter containing:
+tensor(0.89142287, requires_grad=True) Parameter containing:
+tensor(0.19914529, requires_grad=True) Parameter containing:
+tensor(0.24161042, requires_grad=True) Parameter containing:
+tensor(2.09911513, requires_grad=True) Parameter containing:
+tensor(0.57057226, requires_grad=True) Parameter containing:
+tensor(0.38660076, requires_grad=True)
+Epoch:  85
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(20.68832779, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79791272, requires_grad=True) Parameter containing:
+tensor(0.89142430, requires_grad=True) Parameter containing:
+tensor(0.19914380, requires_grad=True) Parameter containing:
+tensor(0.24161106, requires_grad=True) Parameter containing:
+tensor(2.09911633, requires_grad=True) Parameter containing:
+tensor(0.57057315, requires_grad=True) Parameter containing:
+tensor(0.38660198, requires_grad=True)
+Epoch:  86
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.65821457, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79791141, requires_grad=True) Parameter containing:
+tensor(0.89142561, requires_grad=True) Parameter containing:
+tensor(0.19914246, requires_grad=True) Parameter containing:
+tensor(0.24161169, requires_grad=True) Parameter containing:
+tensor(2.09911752, requires_grad=True) Parameter containing:
+tensor(0.57057393, requires_grad=True) Parameter containing:
+tensor(0.38660306, requires_grad=True)
+Epoch:  87
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.26211166, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79791021, requires_grad=True) Parameter containing:
+tensor(0.89142686, requires_grad=True) Parameter containing:
+tensor(0.19914123, requires_grad=True) Parameter containing:
+tensor(0.24161214, requires_grad=True) Parameter containing:
+tensor(2.09911847, requires_grad=True) Parameter containing:
+tensor(0.57057476, requires_grad=True) Parameter containing:
+tensor(0.38660410, requires_grad=True)
+Epoch:  88
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.73219109, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790914, requires_grad=True) Parameter containing:
+tensor(0.89142793, requires_grad=True) Parameter containing:
+tensor(0.19914013, requires_grad=True) Parameter containing:
+tensor(0.24161266, requires_grad=True) Parameter containing:
+tensor(2.09911942, requires_grad=True) Parameter containing:
+tensor(0.57057542, requires_grad=True) Parameter containing:
+tensor(0.38660499, requires_grad=True)
+Epoch:  89
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.24964333, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790813, requires_grad=True) Parameter containing:
+tensor(0.89142889, requires_grad=True) Parameter containing:
+tensor(0.19913913, requires_grad=True) Parameter containing:
+tensor(0.24161310, requires_grad=True) Parameter containing:
+tensor(2.09912038, requires_grad=True) Parameter containing:
+tensor(0.57057601, requires_grad=True) Parameter containing:
+tensor(0.38660580, requires_grad=True)
+Epoch:  90
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.63205338, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790723, requires_grad=True) Parameter containing:
+tensor(0.89142978, requires_grad=True) Parameter containing:
+tensor(0.19913822, requires_grad=True) Parameter containing:
+tensor(0.24161343, requires_grad=True) Parameter containing:
+tensor(2.09912109, requires_grad=True) Parameter containing:
+tensor(0.57057661, requires_grad=True) Parameter containing:
+tensor(0.38660657, requires_grad=True)
+Epoch:  91
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.15417290, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790640, requires_grad=True) Parameter containing:
+tensor(0.89143062, requires_grad=True) Parameter containing:
+tensor(0.19913740, requires_grad=True) Parameter containing:
+tensor(0.24161370, requires_grad=True) Parameter containing:
+tensor(2.09912181, requires_grad=True) Parameter containing:
+tensor(0.57057720, requires_grad=True) Parameter containing:
+tensor(0.38660729, requires_grad=True)
+Epoch:  92
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.33877373, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790568, requires_grad=True) Parameter containing:
+tensor(0.89143133, requires_grad=True) Parameter containing:
+tensor(0.19913666, requires_grad=True) Parameter containing:
+tensor(0.24161397, requires_grad=True) Parameter containing:
+tensor(2.09912252, requires_grad=True) Parameter containing:
+tensor(0.57057768, requires_grad=True) Parameter containing:
+tensor(0.38660792, requires_grad=True)
+Epoch:  93
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.92277336, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790503, requires_grad=True) Parameter containing:
+tensor(0.89143199, requires_grad=True) Parameter containing:
+tensor(0.19913600, requires_grad=True) Parameter containing:
+tensor(0.24161419, requires_grad=True) Parameter containing:
+tensor(2.09912300, requires_grad=True) Parameter containing:
+tensor(0.57057816, requires_grad=True) Parameter containing:
+tensor(0.38660848, requires_grad=True)
+Epoch:  94
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.36199951, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790443, requires_grad=True) Parameter containing:
+tensor(0.89143258, requires_grad=True) Parameter containing:
+tensor(0.19913541, requires_grad=True) Parameter containing:
+tensor(0.24161439, requires_grad=True) Parameter containing:
+tensor(2.09912348, requires_grad=True) Parameter containing:
+tensor(0.57057858, requires_grad=True) Parameter containing:
+tensor(0.38660899, requires_grad=True)
+Epoch:  95
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.29628563, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790390, requires_grad=True) Parameter containing:
+tensor(0.89143312, requires_grad=True) Parameter containing:
+tensor(0.19913486, requires_grad=True) Parameter containing:
+tensor(0.24161452, requires_grad=True) Parameter containing:
+tensor(2.09912395, requires_grad=True) Parameter containing:
+tensor(0.57057899, requires_grad=True) Parameter containing:
+tensor(0.38660946, requires_grad=True)
+Epoch:  96
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.14658737, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790342, requires_grad=True) Parameter containing:
+tensor(0.89143360, requires_grad=True) Parameter containing:
+tensor(0.19913436, requires_grad=True) Parameter containing:
+tensor(0.24161465, requires_grad=True) Parameter containing:
+tensor(2.09912443, requires_grad=True) Parameter containing:
+tensor(0.57057935, requires_grad=True) Parameter containing:
+tensor(0.38660991, requires_grad=True)
+Epoch:  97
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.85032082, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790300, requires_grad=True) Parameter containing:
+tensor(0.89143407, requires_grad=True) Parameter containing:
+tensor(0.19913392, requires_grad=True) Parameter containing:
+tensor(0.24161476, requires_grad=True) Parameter containing:
+tensor(2.09912491, requires_grad=True) Parameter containing:
+tensor(0.57057971, requires_grad=True) Parameter containing:
+tensor(0.38661030, requires_grad=True)
+Epoch:  98
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.66550064, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790258, requires_grad=True) Parameter containing:
+tensor(0.89143449, requires_grad=True) Parameter containing:
+tensor(0.19913352, requires_grad=True) Parameter containing:
+tensor(0.24161486, requires_grad=True) Parameter containing:
+tensor(2.09912515, requires_grad=True) Parameter containing:
+tensor(0.57058001, requires_grad=True) Parameter containing:
+tensor(0.38661066, requires_grad=True)
+Epoch:  99
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(20.55065536, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790223, requires_grad=True) Parameter containing:
+tensor(0.89143485, requires_grad=True) Parameter containing:
+tensor(0.19913316, requires_grad=True) Parameter containing:
+tensor(0.24161497, requires_grad=True) Parameter containing:
+tensor(2.09912539, requires_grad=True) Parameter containing:
+tensor(0.57058030, requires_grad=True) Parameter containing:
+tensor(0.38661098, requires_grad=True)
+Epoch:  100
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.99316406, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790193, requires_grad=True) Parameter containing:
+tensor(0.89143515, requires_grad=True) Parameter containing:
+tensor(0.19913284, requires_grad=True) Parameter containing:
+tensor(0.24161510, requires_grad=True) Parameter containing:
+tensor(2.09912562, requires_grad=True) Parameter containing:
+tensor(0.57058048, requires_grad=True) Parameter containing:
+tensor(0.38661125, requires_grad=True)
+Epoch:  101
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.29073334, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790163, requires_grad=True) Parameter containing:
+tensor(0.89143544, requires_grad=True) Parameter containing:
+tensor(0.19913256, requires_grad=True) Parameter containing:
+tensor(0.24161524, requires_grad=True) Parameter containing:
+tensor(2.09912586, requires_grad=True) Parameter containing:
+tensor(0.57058066, requires_grad=True) Parameter containing:
+tensor(0.38661149, requires_grad=True)
+Epoch:  102
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.51534653, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790139, requires_grad=True) Parameter containing:
+tensor(0.89143568, requires_grad=True) Parameter containing:
+tensor(0.19913231, requires_grad=True) Parameter containing:
+tensor(0.24161537, requires_grad=True) Parameter containing:
+tensor(2.09912610, requires_grad=True) Parameter containing:
+tensor(0.57058078, requires_grad=True) Parameter containing:
+tensor(0.38661170, requires_grad=True)
+Epoch:  103
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(20.96382713, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790115, requires_grad=True) Parameter containing:
+tensor(0.89143592, requires_grad=True) Parameter containing:
+tensor(0.19913208, requires_grad=True) Parameter containing:
+tensor(0.24161547, requires_grad=True) Parameter containing:
+tensor(2.09912634, requires_grad=True) Parameter containing:
+tensor(0.57058090, requires_grad=True) Parameter containing:
+tensor(0.38661188, requires_grad=True)
+Epoch:  104
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(20.95010376, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790097, requires_grad=True) Parameter containing:
+tensor(0.89143610, requires_grad=True) Parameter containing:
+tensor(0.19913189, requires_grad=True) Parameter containing:
+tensor(0.24161559, requires_grad=True) Parameter containing:
+tensor(2.09912658, requires_grad=True) Parameter containing:
+tensor(0.57058102, requires_grad=True) Parameter containing:
+tensor(0.38661203, requires_grad=True)
+Epoch:  105
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.97524452, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790080, requires_grad=True) Parameter containing:
+tensor(0.89143628, requires_grad=True) Parameter containing:
+tensor(0.19913171, requires_grad=True) Parameter containing:
+tensor(0.24161570, requires_grad=True) Parameter containing:
+tensor(2.09912682, requires_grad=True) Parameter containing:
+tensor(0.57058114, requires_grad=True) Parameter containing:
+tensor(0.38661218, requires_grad=True)
+Epoch:  106
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.05942345, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790062, requires_grad=True) Parameter containing:
+tensor(0.89143646, requires_grad=True) Parameter containing:
+tensor(0.19913155, requires_grad=True) Parameter containing:
+tensor(0.24161580, requires_grad=True) Parameter containing:
+tensor(2.09912705, requires_grad=True) Parameter containing:
+tensor(0.57058120, requires_grad=True) Parameter containing:
+tensor(0.38661230, requires_grad=True)
+Epoch:  107
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.26176262, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790050, requires_grad=True) Parameter containing:
+tensor(0.89143658, requires_grad=True) Parameter containing:
+tensor(0.19913140, requires_grad=True) Parameter containing:
+tensor(0.24161589, requires_grad=True) Parameter containing:
+tensor(2.09912729, requires_grad=True) Parameter containing:
+tensor(0.57058126, requires_grad=True) Parameter containing:
+tensor(0.38661242, requires_grad=True)
+Epoch:  108
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.44815063, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790038, requires_grad=True) Parameter containing:
+tensor(0.89143670, requires_grad=True) Parameter containing:
+tensor(0.19913127, requires_grad=True) Parameter containing:
+tensor(0.24161598, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058132, requires_grad=True) Parameter containing:
+tensor(0.38661250, requires_grad=True)
+Epoch:  109
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.16995430, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790026, requires_grad=True) Parameter containing:
+tensor(0.89143682, requires_grad=True) Parameter containing:
+tensor(0.19913115, requires_grad=True) Parameter containing:
+tensor(0.24161607, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058138, requires_grad=True) Parameter containing:
+tensor(0.38661259, requires_grad=True)
+Epoch:  110
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.10438347, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790014, requires_grad=True) Parameter containing:
+tensor(0.89143693, requires_grad=True) Parameter containing:
+tensor(0.19913104, requires_grad=True) Parameter containing:
+tensor(0.24161613, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058144, requires_grad=True) Parameter containing:
+tensor(0.38661268, requires_grad=True)
+Epoch:  111
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.23653984, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79790002, requires_grad=True) Parameter containing:
+tensor(0.89143705, requires_grad=True) Parameter containing:
+tensor(0.19913095, requires_grad=True) Parameter containing:
+tensor(0.24161619, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058150, requires_grad=True) Parameter containing:
+tensor(0.38661277, requires_grad=True)
+Epoch:  112
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.56238174, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789996, requires_grad=True) Parameter containing:
+tensor(0.89143711, requires_grad=True) Parameter containing:
+tensor(0.19913086, requires_grad=True) Parameter containing:
+tensor(0.24161623, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058156, requires_grad=True) Parameter containing:
+tensor(0.38661283, requires_grad=True)
+Epoch:  113
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.64093781, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789990, requires_grad=True) Parameter containing:
+tensor(0.89143717, requires_grad=True) Parameter containing:
+tensor(0.19913079, requires_grad=True) Parameter containing:
+tensor(0.24161626, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058161, requires_grad=True) Parameter containing:
+tensor(0.38661289, requires_grad=True)
+Epoch:  114
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(20.18175697, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789984, requires_grad=True) Parameter containing:
+tensor(0.89143723, requires_grad=True) Parameter containing:
+tensor(0.19913071, requires_grad=True) Parameter containing:
+tensor(0.24161629, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058167, requires_grad=True) Parameter containing:
+tensor(0.38661295, requires_grad=True)
+Epoch:  115
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.29865074, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789978, requires_grad=True) Parameter containing:
+tensor(0.89143729, requires_grad=True) Parameter containing:
+tensor(0.19913065, requires_grad=True) Parameter containing:
+tensor(0.24161632, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661301, requires_grad=True)
+Epoch:  116
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.59041405, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789972, requires_grad=True) Parameter containing:
+tensor(0.89143735, requires_grad=True) Parameter containing:
+tensor(0.19913059, requires_grad=True) Parameter containing:
+tensor(0.24161635, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661304, requires_grad=True)
+Epoch:  117
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.14313889, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789966, requires_grad=True) Parameter containing:
+tensor(0.89143741, requires_grad=True) Parameter containing:
+tensor(0.19913055, requires_grad=True) Parameter containing:
+tensor(0.24161638, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661307, requires_grad=True)
+Epoch:  118
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(24.99734116, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789960, requires_grad=True) Parameter containing:
+tensor(0.89143747, requires_grad=True) Parameter containing:
+tensor(0.19913051, requires_grad=True) Parameter containing:
+tensor(0.24161641, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661310, requires_grad=True)
+Epoch:  119
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.68739891, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789954, requires_grad=True) Parameter containing:
+tensor(0.89143753, requires_grad=True) Parameter containing:
+tensor(0.19913046, requires_grad=True) Parameter containing:
+tensor(0.24161644, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661313, requires_grad=True)
+Epoch:  120
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(20.58637047, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789948, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913043, requires_grad=True) Parameter containing:
+tensor(0.24161647, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661316, requires_grad=True)
+Epoch:  121
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.23092270, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913040, requires_grad=True) Parameter containing:
+tensor(0.24161650, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661319, requires_grad=True)
+Epoch:  122
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.21281433, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913037, requires_grad=True) Parameter containing:
+tensor(0.24161652, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661322, requires_grad=True)
+Epoch:  123
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.16468430, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913034, requires_grad=True) Parameter containing:
+tensor(0.24161653, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661325, requires_grad=True)
+Epoch:  124
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.45362473, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913031, requires_grad=True) Parameter containing:
+tensor(0.24161655, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661328, requires_grad=True)
+Epoch:  125
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(19.79930115, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913030, requires_grad=True) Parameter containing:
+tensor(0.24161656, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  126
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.13412857, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913028, requires_grad=True) Parameter containing:
+tensor(0.24161658, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  127
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.92429924, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913027, requires_grad=True) Parameter containing:
+tensor(0.24161659, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  128
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.33239555, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913025, requires_grad=True) Parameter containing:
+tensor(0.24161661, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  129
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.47209358, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913024, requires_grad=True) Parameter containing:
+tensor(0.24161662, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  130
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.82699394, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913022, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  131
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.58864403, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913021, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  132
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.52746010, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913019, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  133
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.77828026, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913018, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  134
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.51321030, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913016, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  135
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.18842506, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913016, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  136
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.54991150, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913016, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  137
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.00268173, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913016, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  138
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.47789001, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913016, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  139
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.57641983, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913016, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  140
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(23.42917252, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913016, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  141
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.61202240, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913016, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  142
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(20.39008331, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913016, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  143
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(21.91965675, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913016, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  144
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.38650131, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913016, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  145
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.10635948, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913016, requires_grad=True) Parameter containing:
+tensor(0.24161664, requires_grad=True) Parameter containing:
+tensor(2.09912753, requires_grad=True) Parameter containing:
+tensor(0.57058173, requires_grad=True) Parameter containing:
+tensor(0.38661331, requires_grad=True)
+Epoch:  146
+Input data is complex, switching to return_onesided=False
+Loss:  tensor(22.24952126, grad_fn=<MeanBackward0>)
+Params:  Parameter containing:
+tensor(0.79789943, requires_grad=True) Parameter containing:
+tensor(0.89143759, requires_grad=True) Parameter containing:
+tensor(0.19913016, requires_grad=True) 
+============================================
+
+        Job resource usage summary 
+
+                 Memory (GB)    NCPUs
+ Requested  :        64             2
+ Used       :        38 (peak)   0.98 (ave)
+
+============================================
